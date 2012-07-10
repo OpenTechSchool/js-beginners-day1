@@ -1,0 +1,32 @@
+body {
+  padding: 0;
+  margin: 40px 0px 50px 40px;
+  font-family: 'Averia Serif Libre', cursive;
+  max-width: 60em;
+  font-size: 15pt;
+}
+
+h1, h2, h3 {
+  margin-left: -40px;
+  padding-left: 40px;
+}
+
+h1 {
+  font-size: 30pt;
+  background: #ddd;
+}
+h2 {
+  font-size: 20pt;
+  background: #eee;
+}
+h2.step {
+  background: url(footprint.png) no-repeat 99% 50%, #ddd;
+}
+h3 { font-size: 18pt; }
+h3.goal { background: #edd; }
+h3.inst { background: #ded; }
+h3.ex { background: #dde; }
+
+div.box {
+  margin-left: 70px;
+}
