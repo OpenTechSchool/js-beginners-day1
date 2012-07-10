@@ -1,0 +1,219 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum — page 1</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Curriculum: page 1, the basics</h1>
+
+<p>We'll learn to use the browser's JavaScript console, and do some
+fundamental programming.</p>
+
+
+<h2 class=step>Open the console</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Access your browser's JavaScript console.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>In Chrome, press Ctrl+Shift+J on Windows or Linux, press
+Command+Option+J on OS X. (Hold down the first two keys, then press J.
+On German keyboards, Ctrl is labeled Strg.)</p>
+
+<p>You can also go to the wrench menu in the upper right corner of
+your window, and select <code>Tools</code> ▸ <code>JavaScript
+Console</code>.</p>
+
+<p>The console window should appear at the bottom of your browser window.</p>
+
+<p>Resize it by dragging its top border.</p>
+
+<p>Click through the icons along the top, and enjoy the awesomely
+complicated-looking graphs and tech-garble. This
+is <strong>your</strong> command center now.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>The console is a powerful, convenient interface to the innards of a
+web page. It allows you to step through the atoms from which a page is
+built (the 'Elements' tab), to see which files it is composed of, to
+diagnose problems, and, most importantly for us, to play with the
+JavaScript environment in the current page.</p>
+
+<p>Don't feel obliged to understand any of its functionality right
+now. Most of it, we will not need for this course, and the part that
+you need will be explained as we go on.</p>
+
+
+<h2 class=step>Enter your first code</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Actually type in some JavaScript, and see it run.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Go to the 'Console' (rightmost) tab in the browser console.</p>
+
+<p>Type random junk next to the <strong>></strong> sign and press enter.</p>
+
+<p>Now type <code>1 + 1</code> and press enter.</p>
+
+<p>Next, type <code>alert("This computer does what [name] tells it to
+do")</code>. Mind the double quotes and parentheses. Substitute your
+name for <code>[name]</code>.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>This part is the essence of the JavaScript console: you get to type
+in a one-line program, and the browser will run it for you, and tell
+you what the result was. If you write something that is not a valid
+program, it will try to tell you what went wrong.</p>
+
+<p>The first program, <code>1 + 1</code>, won't look to foreign. You
+should read it as a series of commands to the computer: <em>give me
+the number one, now give me another one, now add them both
+together</em>. I.e. JavaScript programs do not refer to abstract
+concepts (addition of one and one), but to a series of very pedestrian
+steps that the computer is instructed to take.</p>
+
+<p>The second program (<code>alert</code>) is a function call.
+Functions are operations that can be invoked. The function available
+under the name <code>alert</code> is an operation for showing a little
+dialog window on the screen. The parentheses are the notation for
+invoking a function, and the values in between them are given to the
+function as further info. In this case, it told the <code>alert</code>
+function which text to display.</p>
+
+
+<h2 class=step>Understand expressions</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Understand the most basic element that programs are composed of.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Combine the two programs from the previous step: <code>alert(1 + 1)</code>.</p>
+
+<p>Enter <code>1 + 1 * 10</code> and then <code>(1 + 1) * 10</code>.
+Note the different results.</p>
+
+<p>Enter <code>"hey" + "ho"</code>.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>The kind of program fragment we have been writing so far is called
+an <em>expression</em>. Expressions are like Lego blocks, in that you
+can combine them into bigger, more interesting expressions. For
+example <code>alert(1 + 1)</code> combines a call
+to <code>alert</code> with the computation of <code>1 + 1</code>, and
+does what you'd expect: show the number two in a dialog.</p>
+
+<p>When combining expressions by using things like <code>+</code>
+and <code>*</code> (<em>operators</em>), the meaning is not always
+entirely obvious. The <code>*</code> operator, used for
+multiplication, is applied before the <code>+</code> operator.
+Parentheses are used to explicitly indicate how the expressions are
+grouped.</p>
+
+<p>Every expression has a <em>value</em>. The most basic expressions
+are numbers (<code>1</code>) and strings (<code>"hey"</code>). They
+simply describe a value directly. Strings are used to represent text,
+and numbers to represent numeric values. These are two
+different <em>types</em> of values. We'll see a few more types
+later.</p>
+
+<p>When <code>+</code> is applied to number values, it means addition.
+When it is applied to string values, it glues the text in the strings
+together, producing a new string value.</p>
+
+
+<h2 class=step>Variables</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Understand how to store values and refer to them by name.
+Understand what statements are.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Enter the following lines at the console:</p>
+
+<pre>var myvalue = 32 * 32;
+alert(myvalue);
+myvalue = 10;
+alert(myvalue);</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>The above program introduces two new concepts: the semicolons, and
+the use of <code>var</code>.</p>
+
+<p>The first is the easiest to explain. A program is a series
+of <em>statements</em>. An expression with a semicolon after it is a
+statement. There are other kinds of statements. The statements in a
+program are, as you'd expect, executed from top to bottom.</p>
+
+<p>One special form of statement is a variable declaration. This
+introduces a name and associates a value with it. Afterwards, the name
+(<code>myvalue</code>, in this case) can be used as an expression that
+returns to the current value of the variable by that name.</p>
+
+<p>A variable's value is not constant over the execution of a program.
+The <code>=</code> operator can be used at any time to give it a new
+value, as in the third line of the example.</p>
+
+
+<h2 class=step>A web page</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>See how JavaScript programs operate in the context of web
+pages.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Open the <a href="http://jsbin.com/egutaf/edit">example</a> JSBin
+page in a new tab. (Ctrl/Cmd + click, or select 'open in new tab' from
+the right-mouse-button menu.)</p>
+
+<p>You will see the source for a very simple HTML page. Read it.</p>
+
+<p>Then click the 'Render' button in the top left corner. Open the
+JavaScript console in the new tab.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>What JSBin (which is itself a web page written in JavaScript)
+allows us to do is to write and try out web pages. The HTML, which is
+the language in which web pages are written, is shown in the right
+half of the screen. We will dig deeper into HTML tomorrow.</p>
+
+<p>On the left, you can enter your JavaScript program. It will be
+automatically inserted into the page. (There are HTML tags for
+explicitly including a file with a JavaScript program, but JSBin
+handles this inclusion for us.) In this case, that program just
+defines a variable called <code>myMessage</code> and calls
+the <code>console.log</code> function on it.</p>
+
+<p>When entering expressions directly into the console, the result
+will be displayed automatically. This does not happen for programs
+running as part of a web page. When you want to explicitly show
+something in the console, use the <code>console.log</code>
+function.</p>
+
+<p>The button in the example page has a snippet of JavaScript
+associated with it through an <code>onclick</code> attribute.
+Attributes are <code>name="value"</code> pairs that are specified in
+HTML tags. Because the button and the <code>myMessage</code> variable
+live on the same page, the <code>onclick</code> program
+(<code>alert(myMessage);</code>) can refer to it.
+The <code>myvalue</code> variable we defined earlier (on this tab)
+is <em>not</em> available on the other tab. Each page is its own
+little world, with its own set of variables.</p>
