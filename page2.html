@@ -1,0 +1,227 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum — page 2</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Curriculum: page 2, the playground</h1>
+
+<p>The previous page told you exactly, literally what to do, without
+leaving you any choices. We apologize for this shameless suppression
+of your artistic self. Now that you know the basics, the course
+material will be less linear, with more room for experimentation.</p>
+
+<h2 class=step>Open the playground</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Get acquainted with our visual programming playground.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Open the <a href="http://jsbin.com/itapey/latest/edit">playground page</a>
+in a new tab.</p>
+
+<p>Render it. Rejoice.</p>
+
+<p>Go back to the 'Code' view (button on the top left of the screen)
+and read the first part of the JavaScript program.</p>
+
+<p>Randomly play around with the content of the <code>drawing</code>
+function. Change some numbers and colors, render again. Now add some
+new shapes.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>What we are going to do is get a feel for programming concepts by
+applying them to something easily observable: graphics. The linked
+page defines a number of convenient drawing operations for us, and
+invites you to experiment with them.</p>
+
+<p>If you are wondering what <code>function drawing() {</code> and all
+that means, read right on, we will get to that in a few steps.</p>
+
+
+<h2 class=step>The loop</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Learn what a loop is, and how to express them in JavaScript.</p>
+
+<p>Problem statement: we want to draw twenty dots, without
+writing <code>circle(x, y, something)</code> ten times.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Replace the content (between the <strong>{</strong>
+and <strong>}</strong> braces) of the <code>drawing</code> function
+with the following program:</p>
+
+<pre>color("red");
+var count = 0;
+while (count < 20) {
+  circle(count * 10, 0, 4);
+  count = count + 1;
+}</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>A program, when not otherwise instructed, will simply execute its
+statements from top to bottom. The great thing about making a computer
+work for us is that it can take repetetive tasks of our hand. Thus, we
+don't want to write <code>cicle(0, 0, 4); circle(10, 0, 4);</code> etc
+to draw our dots.</p>
+
+<p>The word <code>while</code> can be used to create a special kind of
+statement that is called a <em>loop</em>. It consists of
+a <em>condition</em> (<code>count &lt; 20</code>) and a <em>body</em>
+(the part between the braces). A loop does not obey the usual top-down
+order of execution. It will continue executing the body as long as the
+condition holds true.</p>
+
+<p>The braces around the two statements inside the loop are used to
+group them together—they make clear that these statements both belong
+to the loop body. You have probably noticed that some space is added
+in front of these, to make it clear that they are part of a block.
+This is done to help readability of the program, but isn't
+strictly required.</p>
+
+<p>The example code uses a variable to track its progress.
+The <code>count</code> variable starts at zero, and is moved forward
+by one every time the loop body executes. A loop condition is a
+regular expression, and the <code>&lt;</code> symbol is a regular
+operator that compares two expressions and returns a value that
+indicates whether the one on the left is smaller than the one on the
+right. Thus, we can expect the loop body to be executed exactly twenty
+times—first with <code>count</code> at zero, then at one, and so on
+until nineteen. When it reaches twenty, the condition no longer holds,
+and the program continues below the loop (which is the end of our
+example).</p>
+
+<p>There are a few more things you might need to know about
+the <code>&lt;</code> operator. The value it produces is not a number
+or a string, but a new type, called <em>boolean</em>. There are only
+two values of this type, called <code>true</code>
+and <code>false</code>. There are similar operators for checking
+whether a value is greater than (<code>></code>) or equal to
+(<code>==</code>) to some other value.</p>
+
+<p><strong>Exercise:</strong> try to write a program that prints a
+20-by-20 <em>grid</em> of dots, instead of just a line.</p>
+
+
+<h2 class=step>Conditional execution</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Next, we want to draw every other dot in our lines of dots in a
+different color. The even ones should be black, the odd ones grey.</p>
+
+<p>In order to do this, we will learn about conditional statements.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Here is the program that, when put inside the <code>drawing</code>
+function, does what we want:</p>
+
+<pre>var count = 0;
+while (count < 20) {
+  if (count % 2 == 0) {
+    color("black");
+  } else {
+    color("gray");
+  }
+  circle(count * 10, 0, 4);
+  count = count + 1;
+}</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>The first new concept introduced here is the <code>%</code>
+operator. This is pronounced 'remainder'. It is not a very important
+operator. What it does is divide the value on the left by the one on
+the right, and return the remainder of that division.
+Thus, <code>count % 2 == 0</code> is a way to check
+whether <code>count</code> is even—if it is, then the remainder of
+dividing it by two will be zero.</p>
+
+<p>But the <em>important</em> new concept introduced here is
+the <code>if</code>/<code>else</code> statement. Like a loop, it
+accepts a condition. If the condition is <code>true</code>, it will
+execute the statement coming after it. Otherwise, it will execute the
+statement that follows the <code>else</code> word.</p>
+
+<p>The <code>else</code> part can be left off to indicate that nothing
+at all should happen when the condition does not hold.</p>
+
+<p><strong>Exercise:</strong> extend the example program to draw every
+third dot 10 units higher than the others. Hint: define a
+variable <code>height</code> and set its value inside of a
+conditional.</p>
+
+
+<h2 class=step>Functions</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Now consider that we want to draw multiple smileys. We could repeat
+the six statements needed to draw one several times, but again, what
+we're trying to do here is to make the computer <strong>work</strong>
+for us.</p>
+
+<p>We are about to learn how to define new functions to perform useful
+operations for us.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>This is the smiley-drawing function:</p>
+
+<pre>function smiley(x, y) {
+  color("yellow");
+  circle(x, y, 50);
+  color("black");
+  circle(x - 20, y + 10, 7);
+  circle(x + 20, y + 10, 7);
+  lineWidth(3);
+  line("g -20 -10 q 20 -10 0 -50 c");
+}</pre>
+
+<p>You can put it in your code next to the <code>drawing</code>
+function, and change that function to call it:</p>
+
+<pre>function drawing() {
+  smiley(0, 0);
+  smiley(-100, 20);
+  smiley(100, 50);
+}</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>A function is, in effect, a shorthand for a piece of code. You
+define it with the <code>function</code> word as shown above, and it
+defines a variable with the given name (<code>smiley</code>, in this
+case) that refers to the chunk of code. The names after the function
+name—<code>(x, y)</code>—are the <em>parameters</em> to the function.
+These are given a value when the function is applied. For
+example <code>smiley(0, 0)</code> will run the function body with
+both <code>x</code> and <code>y</code> holding the value zero.</p>
+
+<p>One thing to be aware of is that variables defined inside functions
+(including their parameters), are <em>local</em> to that function. So
+if you have another function that also has a parameter
+called <code>x</code>, such as <code>circle</code>, that
+function's <code>x</code> and the one in <code>smiley</code> are
+separate variables, and do not interfere with each other. Mentions
+of <code>x</code> in <code>smiley</code> refer to that
+function's <code>x</code>, and mentions in other functions refer to
+whichever variable happens to be called <code>x</code> in that
+function.</p>
+
+<p><strong>Exercise:</strong> define a
+function <code>smileySquadron</code>, which, given <code>x</code>
+and <code>y</code> parameters, draws five or so smileys close together
+near those coordinates. Once it works, use it to draw a lot of
+smileys.</p>
