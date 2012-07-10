@@ -21,12 +21,20 @@ h2 {
 }
 h2.step {
   background: url(footprint.png) no-repeat 99% 50%, #ddd;
+  margin-top: 2em; 
 }
-h3 { font-size: 18pt; }
-h3.goal { background: #edd; }
-h3.inst { background: #ded; }
-h3.ex { background: #dde; }
+h3 {
+  font-size: 18pt;
+}
+
+h3.goal { background: #ecc; }
+h3.inst { background: #cec; }
+h3.ex { background: #cce; }
 
 div.box {
   margin-left: 70px;
+}
+
+pre {
+  padding-left: 20px;
 }
