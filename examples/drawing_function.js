@@ -1,18 +1,25 @@
 // use_html: drawing.html
-function smiley(x, y) {
-  color("yellow");
+function circles(x, y) {
+  color("red");
   circle(x, y, 50);
-  color("black");
-  circle(x - 20, y + 10, 7);
-  circle(x + 20, y + 10, 7);
-  lineWidth(3);
-  line("g -20 -10 q 20 -10 0 -50 c");
+  color("orange");
+  circle(x, y, 45);
+  color("yellow");
+  circle(x, y, 40);
+  color("lightgreen");
+  circle(x, y, 35);
+  color("lightblue");
+  circle(x, y, 30);
+  color("purple");
+  circle(x, y, 25);
+  color("white");
+  circle(x, y, 20);
 }
 
 function drawing() {
-  smiley(0, 0);
-  smiley(-100, 20);
-  smiley(100, 50);
+  circles(0, 0);
+  circles(-100, 20);
+  circles(100, 50);
 }
 
 // The following functions are available:

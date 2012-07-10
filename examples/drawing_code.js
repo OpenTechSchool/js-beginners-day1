@@ -75,3 +75,17 @@ function line(spec) {
     console.log("Bad path: " + e.message);
   }
 }
+
+function rotate(angle, f) {
+  ctx.save();
+  ctx.rotate(angle / (Math.PI / 180));
+  f();
+  ctx.restore();
+}
+
+function moveTo(x, y, f) {
+  ctx.save();
+  ctx.translate(x, -y);
+  f();
+  ctx.restore();
+}
