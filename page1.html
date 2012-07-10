@@ -179,9 +179,9 @@ pages.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>Open the <a href="http://jsbin.com/egutaf/latest/edit">example</a>
-JSBin page in a new tab. (Ctrl/Cmd + click, or select 'open in new
-tab' from the right-mouse-button menu.)</p>
+<p>Open the <a href="sandbox/#basic.html">example</a> page in a new
+tab. (Ctrl/Cmd + click, or select 'open in new tab' from the
+right-mouse-button menu.)</p>
 
 <p>You will see the source for a very simple HTML page. Read it.</p>
 
@@ -190,23 +190,29 @@ JavaScript console in the new tab.</p>
 
 <h3 class=ex>Explanation</h3>
 
-<p>What JSBin (which is itself a web page written in JavaScript)
-allows us to do is to write and try out web pages. The HTML, which is
-the language in which web pages are written, is shown in the right
-half of the screen. We will dig deeper into HTML tomorrow.</p>
+<p>What the sandbox page (which is itself a web page written in
+JavaScript) allows us to do is to write and try out web pages.<p>
 
-<p>On the left, you can enter your JavaScript program. It will be
-automatically inserted into the page. (There are HTML tags for
-explicitly including a file with a JavaScript program, but JSBin
-handles this inclusion for us.) In this case, that program just
-defines a variable called <code>myMessage</code> and calls
-the <code>console.log</code> function on it.</p>
+<p>Pieces of JavaScript can be embedded in HTML documents with
+the <code>&lt;script></code> tag. In this case, there is a tiny
+program embedded that just defines a variable
+called <code>myMessage</code> and calls the <code>console.log</code>
+function on it.</p>
 
 <p>When entering expressions directly into the console, the result
 will be displayed automatically. This does not happen for programs
 running as part of a web page. When you want to explicitly show
 something in the console, use the <code>console.log</code>
 function.</p>
+
+<p>If you want to inspect the environment of a page shown in the
+sandbox, you have to take an extra step. If you open a console on that
+tab, and you type <code>myMessage</code> into it, it won't find that
+variable. This is because the console is connected to the sandbox page
+itself, not the page shown inside of it. At the bottom of the console,
+there is a control that says <code>&lt;top frame></code>. Click on
+this and select the other option to connect the console to the actual
+page we wrote.</p>
 
 <p>The button in the example page has a snippet of JavaScript
 associated with it through an <code>onclick</code> attribute.

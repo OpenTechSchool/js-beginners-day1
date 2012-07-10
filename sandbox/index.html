@@ -1,0 +1,57 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum sandbox</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href="../style.css">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <script src="../lib/codemirror2/lib/codemirror.js"></script>
+  <script src="../lib/codemirror2/mode/javascript/javascript.js"></script>
+  <script src="../lib/codemirror2/mode/xml/xml.js"></script>
+  <script src="../lib/codemirror2/mode/css/css.js"></script>
+  <script src="../lib/codemirror2/mode/htmlmixed/htmlmixed.js"></script>
+  <link rel=stylesheet href="../lib/codemirror2/lib/codemirror.css">
+  <script src="sandbox.js"></script>
+  <style>
+    body, html { height: 100%; width: auto; max-width: none; margin: 0; padding: 0; overflow: hidden; }
+    #editor {
+      position: absolute; top: 40px; left: 0; right: 0; bottom: 0;
+      -webkit-transition: top .5s ease;
+      -moz-transition: top .5s ease;
+      transition: top .5s ease;
+      z-index: 5; background: white;
+    }
+    #controls {
+      position: absolute; top: -40px; left: 0; right: 0; height: 30px;
+      padding: 5px 10px; background: #eee;
+      border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; margin-top: -1px;
+      font-size: 13px;
+    }
+    .CodeMirror-gutter {
+      background: #eee; border-right: 1px solid #ddd;
+    }
+    .CodeMirror {
+      font-family: MenschRegular, Menlo, Monaco, consolas, monospace;
+      font-size: 16px;
+    }
+    #frame {
+      z-index: 4;
+      display: none;
+      border: none;
+    }
+    button {
+      font-family: inherit;
+      font-size: inherit;
+    }
+  </style>
+</head>
+
+<div id=editor>
+  <div id=controls>
+    <button onclick="render()">Render</button>
+    <button onclick="edit()" id="editbutton" disabled>Edit</button>
+    <span id=docname></span>
+  </div>
+</div>
+
+<iframe src="about:blank" id="frame"></iframe>
