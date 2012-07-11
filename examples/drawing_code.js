@@ -49,7 +49,14 @@ function circle(x, y, r) {
   ctx.fill();
 }
 
-function line(spec) {
+function line(x1, y1, x2, y2) {
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+}
+
+function path(spec) {
   ctx.beginPath();
   var parsed = spec.split(/\s+/g);
   function arg() {
@@ -78,6 +85,14 @@ function line(spec) {
   } catch(e) {
     console.log("Bad path: " + e.message);
   }
+}
+
+function text(x, y, string) {
+  ctx.save();
+  ctx.scale(1, -1);
+  ctx.font = "16px sans-serif";
+  ctx.fillText(string, x, -y);
+  ctx.restore();
 }
 
 function rotate(angle) {

@@ -107,45 +107,198 @@ it, and updating it, are all grouped together, to make it easier to
 see that they belong together.</p>
 
 
-<h2 class=step></h2>
+<h2 class=step>Named properties</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p></p>
+<p>Learn how to create objects, and access their properties.</p>
 
 <h3 class=inst>Instructions</h3>
 
+<p>Open the console again, in case you had closed it.</p>
+
+<p>Create a variable by entering this in the console: <code>var myObject = {name: "Larry", score: 100};</code></p>
+
+<p>Evaluate <code>myObject.name</code> and <code>myObject.score</code>.</p>
+
+<p>Also evaluate <code>myObject["name"]</code> and <code>myObject["sco" + "re"]</code>.</p>
+
+<p>Give the object another property with <code>myObject.color =
+"purple"</code>. Then evaluate <code>myObject.color</code>.</p>
+
+<p>Change the score property by doing <code>myObject.score =
+105</code>. Evaluate <code>myObject.score</code> again to convince
+yourself that it worked.</p>
+
 <h3 class=ex>Explanation</h3>
 
+<p>Objects are also collections of values. But they require every
+value to have a name. Arrays are useful when collecting any number of
+values in a homogenous group, whereas objects are more when each value
+has a specific, distinct role.</p>
 
-<h2 class=step>Collecting things</h2>
+<p>The <code>{property1: value1, property2: value2}</code> syntax is
+used to create a new object. There are two ways to access the
+properties of an object. The <code>object.property</code> way is used
+when you know the name of the property in advance.
+The <code>object["property"]</code> way allows the property name to be
+any expression, and thus is useful when the name needs to be computed
+somehow.</p>
+
+<p>Together, objects and arrays provide a way to express a wide
+variety of information. For example, a list of players in a game would
+typically be an array of objects, where each object represents a
+player. If a list of achievements has to be associated with players,
+that would be another array inside of each object, and so on.</p>
+
+<p><strong>Exercise:</strong> Figure out a JavaScript representation
+for a chess game board. There are multiple good solutions.</p>
+
+
+<h2 class=step>We've got data</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p></p>
+<p>Perform a simple visualization of a dataset.</p>
 
 <h3 class=inst>Instructions</h3>
 
+<p>In our new playground environment, we have a new variable
+available, <code>countryData</code>. This contains an array of objects
+with some information (population, life expectancy) about a lot of
+countries.</p>
+
+<p>Each object (representing a country), has a <code>name</code>
+property containing a string, and <code>population</code>
+and <code>life_expectancy</code> properties that hold arrays of
+numbers, representing the data points for these statistics from the
+year 1960 to 2011.</p>
+
+<p>This program picks a few countries, and plots the trend of their
+life expectancy in this period as series of dots.</p>
+
+<pre>var width = 600, height = 300;
+
+function showCountry(country) {
+  var step = width / country.life_expectancy.length;
+  for (var pos = 0; pos < country.life_expectancy.length; pos = pos + 1) {
+    var le = country.life_expectancy[pos];
+    circle(step * pos, le * height / 100, 2);
+  }
+}
+
+function drawing() {
+  moveTo(-width * 0.5, -height * 0.5);
+  color("red");
+  showCountry(countryData[66]); // Germany
+  color("green");
+  showCountry(countryData[81]); // India
+  color("blue");
+  showCountry(countryData[150]); // Russia
+}</pre>
+
+<p>You can see it in action <a href="sandbox/#life_expectancy.js"
+target=_blank>here</a>.</p>
+
 <h3 class=ex>Explanation</h3>
 
+<p>In order to be a little disciplined about where we're going to
+draw, the program starts by defining the width and the height of the
+area it wants to draw in. 600 by 300 units.</p>
 
-<h2 class=step>Collecting things</h2>
+<p>The <code>showCountry</code> function takes a country object as its
+parameter, and runs a loop over all the life expectancy data points
+for that country. It computes the horizontal distance it wants to
+leave between dots in the <code>step</code> variable, and, on the
+assumption that life expectancy is in the zero to hundred range,
+divides the height by 100 to determine the vertical space that
+signifies one year of life expectancy.</p>
+
+<p>The <code>drawing</code> function first moves the coordinate system
+so that 0,0 is the bottom left corner of our graph, and then
+calls <code>showCountry</code> on three different countries, giving
+each one a different color.</p>
+
+<p><strong>Exercise:</strong> Having to know a country's position in
+the dataset in order to display it is rather silly. Write a
+function <code>findCountry</code> that takes a country name as its
+only parameter, loops over the <code>countryData</code> array, and
+gives back the object for the named country.</p>
+
+<p>In order to do this, you need to know that <code>return</code>
+statements can be used in functions to give back a value to the code
+that called the function. For example:</p>
+
+<pre>function timesThree(x) {
+  return x * 3;
+}
+console.log(timesThree(3)); // Logs 9</pre>
+
+<p><strong>Exercise:</strong> A big problem with our graphs is that
+you have no idea what the dots actually mean. Add code that draws gray
+horizontal lines (using the <code>line(x1, y1, x2, y2)</code>
+function) at ten-year intervals behind the graph. I.e. there is one
+line for zero, one for ten, and so on up to one hundred. Use
+the <code>width</code> and <code>height</code> variables to place the
+lines properly.</p>
+
+<p>If you're feeling motivated, you can also add textual labels (using
+the <code>text(x, y, string)</code> function) and/or a scale for the
+years to the graph.</p>
+
+<p><strong>Exercise:</strong> Change the <code>showCountry</code>
+function to draw a line instead of a series of dots.</p>
+
+
+<h2 class=step>Transforming data</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p></p>
+<p>Independently write a program that summarizes a dataset.</p>
 
 <h3 class=inst>Instructions</h3>
 
+<p>In <a href="sandbox/#transform.js" target=_blank>the program for
+this step</a>, there is a function <code>visualizeHistory</code>,
+which is a lot like the <code>showCountry</code> function we used
+before, except that it can be used to plot any data. It takes an array
+of values and a vertical scale (the amount of vertical space one unit
+of the input data takes up) as parameters.</p>
+
+<p>Finish the <code>showWorldPopulation</code> function. It should
+somehow compute the world population for each of the years in the
+dataset, put those numbers into an array, and correctly call
+the <code>visualizeHistory</code> function on that array.</p>
+
+<p>To build up an array, follow this pattern:</p>
+
+<pre>var newArray = []; # empty
+for (var i = 0; i < 10; i = i + 1) {
+  newArray.push(i);
+}</pre>
+
+<p>The <code>push</code> function that is a property (<em>method</em>)
+of an array is used to add an element.</p>
+
+<p>To figure out the correct vertical scale for your graph, keep track
+of the maximum world population in the whole dataset (either
+using <code>if</code> with the <code>></code> operator, or
+the <code>Math.max</code> function, which can be given two arguments
+and will returns the greatest of the two.</p>
+
 <h3 class=ex>Explanation</h3>
 
+<p>The data is not in entirely the most obvious format for the purpose
+of summing up population per-year—we'd prefer to be able to
+straightforwardly get a collection of all populations for a given
+year.</p>
 
-<h2 class=step>Collecting things</h2>
+<p>But still, by using a loop inside of a loop, with the outer loop
+going over the years (use, for
+example, <code>countryData[0].population.length</code> to know the
+amount of years to go over) and the inner loop going over the
+countries. It can then pick out the population for the current year
+from each country, and add it to the sum (which should be reset to
+zero at the start of every repetition of the outer loop).</p>
 
-<h3 class=goal>Goal</h3>
-
-<p></p>
-
-<h3 class=inst>Instructions</h3>
-
-<h3 class=ex>Explanation</h3>
+<p>Give it a shot. If you get stuck, flag down a coach.</p>

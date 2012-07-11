@@ -7,7 +7,7 @@ function smiley(x, y) {
   circle(-20, 10, 7);
   circle(20, 10, 7);
   lineWidth(3);
-  line("g -20 -10 q 20 -10 0 -50 c");
+  path("g -20 -10 q 20 -10 0 -50 c");
   goBack();
 }
 
@@ -19,12 +19,14 @@ function drawing() {
 
 // The following functions are available:
 //
-//  color(string) - set the current color
-//  lineWidth(number) - set the line width
+//  color(string)            - set the current color
+//  lineWidth(number)        - set the line width
 //  box(x, y, width, height) - draw a box
-//  circle(x, y, radius) - draw a circle
-//  clear() - clear the screen
-//  line(string) - draw a line
+//  circle(x, y, radius)     - draw a circle
+//  line(x1, y1, x2, y2)     - draw a line
+//  text(x, y, string)       - draw text
+//  clear()                  - clear the screen
+//  path(string)             - draw a complex line
 //    In a line description, the following commands are valid:
 //    g x y - go to point x,y without drawing
 //    l x y - draw a line from the current point to point x,y

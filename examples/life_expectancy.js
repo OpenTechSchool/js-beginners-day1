@@ -1,35 +1,22 @@
-// use_html: drawing.html
-// The old smiley function from the previous step
-function smiley(x, y) {
-  moveTo(x, y);
-  color("yellow");
-  circle(0, 0, 50);
-  color("black");
-  circle(-20, 10, 7);
-  circle(20, 10, 7);
-  lineWidth(3);
-  path("g -20 -10 q 20 -10 0 -50 c");
-  goBack();
+// use_html: data.html
+var width = 600, height = 300;
+
+function showCountry(country) {
+  var step = width / country.life_expectancy.length;
+  for (var pos = 0; pos < country.life_expectancy.length; pos = pos + 1) {
+    var le = country.life_expectancy[pos];
+    circle(step * pos, le * 3, 2);
+  }
 }
 
 function drawing() {
-  // The angle variable stores the current rotation
-  var angle = 0;
-  // Draw twenty frames per second (20 * 50 = 1000 milliseconds)
-  setInterval(frame, 50);
-  function frame() {
-    // Clear the screen
-    clear();
-    // Update the angle
-    angle = angle - 2;
-    // Rotate what we are about to draw
-    rotate(angle);
-    // A stick...
-    color("black");
-    box(-5, 100, 10, 150);
-    // with a smiley on top
-    smiley(0, 100);
-  }
+  moveTo(-width * 0.5, -height * 0.5);
+  color("red");
+  showCountry(countryData[66]); // Germany
+  color("green");
+  showCountry(countryData[81]); // India
+  color("blue");
+  showCountry(countryData[150]); // Russia
 }
 
 // The following functions are available:
