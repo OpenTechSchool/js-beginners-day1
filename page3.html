@@ -302,3 +302,32 @@ from each country, and add it to the sum (which should be reset to
 zero at the start of every repetition of the outer loop).</p>
 
 <p>Give it a shot. If you get stuck, flag down a coach.</p>
+
+<p>Some other ideas for teasing interesting visualizations out of this
+data:</p>
+
+<ul>
+  <li>Each country also has a <code>region</code> property. These are
+  three-letter abbreviations that divide the world into seven areas.
+  (You can get their full name by using the <code>regionName</code>
+  function that is supplied along with the data.) Try to display a
+  diagram that shows the percentages of the world population living in
+  each of these regions, in each year (for example by using colored
+  bars).</li>
+  <li>The country objects also contain a <code>fertility</code>
+  property that, for each year, gives the country's fertility rate.
+  Plot a two-dimensional picture for a certain year, which shows the
+  correlation between life expectancy and fertility rate (i.e. life
+  expectancy on the x axis, fertility on the y axis).</li>
+  <li>Animate some per-year visualization, for example the one
+  described in the point above this, over time. Use
+  the <code>setTimeout</code> trick demonstrated
+  in <a href="sandbox/#drawing_animate.js" target=_blank>this example
+  from the previous page</a>, cycling through the years and drawing a
+  new picture (including a call to <code>text</code> to display the
+  year) every tenth of a second or so.</li>
+</ul>
+
+<h3>And so we reach</h3>
+
+<p><a href="page4.html">→ The final page of the day</a>.</p>
