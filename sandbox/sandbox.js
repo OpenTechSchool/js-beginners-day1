@@ -17,13 +17,16 @@ var state = "edit";
 
 function resize() {
   editor.getScrollerElement().style.height = editorDiv.clientHeight + "px";
-  frame.style.width = document.body.clientWidth + "px";
-  frame.style.height = (document.body.clientHeight - document.getElementById("controls").offsetHeight) + "px";
+  if (frame) resizeFrame();
   if (state == "view") editorDiv.style.top = document.body.clientHeight + "px";
 }
 
+function resizeFrame() {
+  frame.style.width = document.body.clientWidth + "px";
+  frame.style.height = (document.body.clientHeight - document.getElementById("controls").offsetHeight) + "px";
+}
+
 window.onload = function() {
-  frame = document.getElementById("frame");
   editorDiv = document.getElementById("editor");
   editor = CodeMirror(editorDiv, {
     lineNumbers: true,
@@ -55,9 +58,13 @@ function loadFile() {
         htmlfile = annot[1];
       }
       editor.setValue(txt);
-      getFile(htmlfile, function(txt) {wrap = txt;}, true);
+      getFile(htmlfile, function(txt) {
+        wrap = txt;
+        if (state == "view") render();
+      }, true);
     } else {
       editor.setValue(txt);
+      if (state == "view") render();
     }
   }, true);
 }
@@ -68,21 +75,31 @@ function showError(msg) { alert(msg); }
 
 function render() {
   editorDiv.style.top = document.body.clientHeight + "px";
-  var doc = frame.contentWindow.document;
-  doc.open();
-  if (mode == "javascript") {
-    doc.write(wrap + "<script>" + editor.getValue() + "</script>");
-  } else {
-    doc.write(editor.getValue());
-  }
-  doc.close();
-  frame.style.display = "block";
+  if (frame) frame.parentNode.removeChild(frame);
+  frame = document.createElement("iframe");
+  frame.src = "about:blank";
+  resizeFrame();
+  document.body.appendChild(frame);
+  setTimeout(function() {
+    var doc = frame.contentWindow.document;
+    doc.open();
+    if (mode == "javascript") {
+      doc.write(wrap + "<script>" + editor.getValue() + "</script>");
+    } else {
+      doc.write(editor.getValue());
+    }
+    doc.close();
+  }, 50);
   state = "view";
   document.getElementById("editbutton").disabled = false;
 }
 
 function edit() {
   editorDiv.style.top = "40px";
+  setTimeout(function() {
+    if (frame) { frame.parentNode.removeChild(frame); frame = null; }
+    editor.getScrollerElement().style.height = editorDiv.clientHeight + "px";
+  }, 700);
   state = "edit";
   document.getElementById("editbutton").disabled = true;
 }

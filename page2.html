@@ -7,18 +7,18 @@
   <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 </head>
 
-<h1>Curriculum: page 2, the playground</h1>
+<h1>Curriculum: page 2, pictures</h1>
 
 <p>The previous page told you exactly, literally what to do, without
 leaving you any choices. We apologize for this shameless suppression
 of your artistic self. Now that you know the basics, the course
 material will be less linear, with more room for experimentation.</p>
 
-<h2 class=step>Open the playground</h2>
+<h2 class=step>Open the picture playground</h2>
 
 <h3 class=goal>Goal</h3>
 
-<p>Get acquainted with our visual programming playground.</p>
+<p>Get acquainted with our visual programming environment.</p>
 
 <h3 class=inst>Instructions</h3>
 
@@ -40,6 +40,12 @@ new shapes.</p>
 applying them to something easily observable: graphics. The linked
 page defines a number of convenient drawing operations for us, and
 invites you to experiment with them.</p>
+
+<p>At the bottom of the program there are a number of lines starting
+with two slashesh (<code>//</code>). These are
+called <em>comments</em>. They clarify the program, but are not
+actually part of it. You can write anything you want in a comment, the
+computer won't even look at it.</p>
 
 <p>If you are wondering what <code>function drawing() {</code> and all
 that means, read right on, we will get to that in a few steps.</p>
@@ -109,7 +115,8 @@ whether a value is greater than (<code>></code>) or equal to
 (<code>==</code>) to some other value.</p>
 
 <p><strong>Exercise:</strong> try to write a program that prints a
-20-by-20 <em>grid</em> of dots, instead of just a line.</p>
+20-by-20 <em>grid</em> of dots, instead of just a line. You'll need
+two loops, and two counter variables.</p>
 
 
 <h2 class=step>Conditional execution</h2>
@@ -167,34 +174,28 @@ conditional.</p>
 
 <h3 class=goal>Goal</h3>
 
-<p>Now consider that we want to draw a shape, say a set of concentric
-circles, in multiple, specific places. We could repeat the statements
-needed to draw one such shape several times, but again, what we're
-trying to do here is to make the computer <strong>work</strong> for
-us.</p>
+<p>Now consider that we want to draw a smiley in multiple, specific
+places. We could repeat the six statements needed to draw one such
+shape several times, but again, what we're trying to do here is to
+make the computer <strong>work</strong> for us.</p>
 
 <p>We are about to learn how to define new functions to perform useful
 operations for us.</p>
 
 <h3 class=inst>Instructions</h3>
 
-<p>This is the shape-drawing function:</p>
+<p>This is the <code>smiley</code> function:</p>
 
-<pre>function circles(x, y) {
-  color("red");
-  circle(x, y, 50);
-  color("orange");
-  circle(x, y, 45);
+<pre>function smiley(x, y) {
+  moveTo(x, y);
   color("yellow");
-  circle(x, y, 40);
-  color("lightgreen");
-  circle(x, y, 35);
-  color("lightblue");
-  circle(x, y, 30);
-  color("purple");
-  circle(x, y, 25);
-  color("white");
-  circle(x, y, 20);
+  circle(0, 0, 50);
+  color("black");
+  circle(-20, 10, 7);
+  circle(20, 10, 7);
+  lineWidth(3);
+  line("g -20 -10 q 20 -10 0 -50 c");
+  goBack();
 }</pre>
 
 <p>You can put it in your code next to the <code>drawing</code>
@@ -203,35 +204,70 @@ as <a href="sandbox/#drawing_function.js" target=_blank>shown
 here</a>:</p>
 
 <pre>function drawing() {
-  circles(0, 0);
-  circles(-100, 20);
-  circles(100, 50);
+  smiley(0, 0);
+  smiley(-100, 20);
+  smiley(100, 50);
 }</pre>
 
 <h3 class=ex>Explanation</h3>
 
 <p>A function is, in effect, a shorthand for a piece of code. You
-define it with the <code>function</code> word as shown above, and it
-defines a variable with the given name (<code>circles</code>, in this
-case) that refers to the chunk of code. The names after the function
-name—<code>(x, y)</code>—are the <em>parameters</em> to the function.
-These are given a value when the function is applied. For
-example <code>circles(0, 0)</code> will run the function body with
+define it with the <code>function</code> word as shown above, and
+which produces a variable with the given name (<code>smiley</code>, in
+this case) that refers to the chunk of code. The names after the
+function name—<code>(x, y)</code>—are the <em>parameters</em> to the
+function. These are given a value when the function is applied. For
+example <code>smiley(0, 0)</code> will run the function body with
 both <code>x</code> and <code>y</code> holding the value zero.</p>
 
 <p>One thing to be aware of is that variables defined inside functions
 (including their parameters), are <em>local</em> to that function. So
 if you have another function that also has a parameter
 called <code>x</code>, such as <code>circle</code>, that
-function's <code>x</code> and the one in <code>circles</code> are
+function's <code>x</code> and the one in <code>smiley</code> are
 separate variables, and do not interfere with each other. Mentions
-of <code>x</code> in <code>circles</code> refer to that
+of <code>x</code> in <code>smiley</code> refer to that
 function's <code>x</code>, and mentions in other functions refer to
 whichever variable happens to be called <code>x</code> in that
 function.</p>
 
 <p><strong>Exercise:</strong> define a
-function <code>circleSquadron</code>, which, given <code>x</code>
-and <code>y</code> parameters, draws five or so of these shapes close
-together near those coordinates. Once it works, use it to draw a lot
-of circles.</p>
+function <code>smileySquadron</code>, which, given <code>x</code>
+and <code>y</code> parameters, draws five or so smileys next to each
+other by using a <code>while</code> loop. Once it works, use it to
+draw a lot of smileys.</p>
+
+
+<h2 class=step>Free-form</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Write some kind of entertaining graphical program yourself.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Here are some tools to help you get started:</p>
+
+<p><code>Math.random()</code> can be used to produce a random
+(unpredictable) number between zero and one. Thus, <code>Math.random()
+* 10</code> produces a number between zero and ten, and so on.</p>
+
+<p><code>setInterval(func, n)</code> is a way to run a function
+every <code>n</code> milliseconds. If you combine it with
+the <code>clear</code> function to clear the screen, you can produce
+an animation. You can find a
+demonstration <a href="sandbox/#drawing_animate.js"
+target=_blank>here</a>.</p>
+
+<p>The <code>moveTo</code>, <code>rotate</code>, <code>scale</code>,
+and <code>goBack</code> functions defined in the playground, when
+combined with functions that call themselves, make it very easy to
+define hierarchical, fractal drawing.
+See <a href="sandbox/#drawing_tree.js" target=_blank>this tree</a> for
+an example.</p>
+
+<h3 class=ex>Explanation</h3>
+
+<p>Doing is the best way to learn. Go nuts. Think of something
+elaborate. Ask the coaches for help when you are unsure how to go
+about something.</p>

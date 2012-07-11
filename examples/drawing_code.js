@@ -4,7 +4,7 @@ window.onload = function() {
   setTimeout(function() {
     canvas = document.getElementById("mycanvas");
     ctx = canvas.getContext("2d");
-    resize();
+    clear();
     drawing();
   }, 20);
 };
@@ -27,21 +27,25 @@ function lineWidth(n) {
   ctx.lineWidth = n; 
 }
 
+var pushDepth = 0;
+
 function clear() {
+  for (var i = 0; i < pushDepth; ++i)
+    ctx.restore();
   resize();
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  ctx.translate(centerx, centery);
+  ctx.scale(1, -1);
+  pushDepth = 2;
 }
 
-function $x(x) { return centerx + x; }
-function $y(y) { return centery - y; }
-
 function box(x, y, w, h) {
-  ctx.fillRect($x(x), $y(y), w, h);
+  ctx.fillRect(x, y - h, w, h);
 }
 
 function circle(x, y, r) {
   ctx.beginPath();
-  ctx.arc($x(x), $y(y), r, 0, 2 * Math.PI);
+  ctx.arc(x, y, r, 0, 2 * Math.PI);
   ctx.fill();
 }
 
@@ -60,12 +64,12 @@ function line(spec) {
       if (cmd == "c") {
         ctx.closePath();
       } else if (cmd == "g") {
-        ctx.moveTo($x(arg()), $y(arg()));
+        ctx.moveTo(arg(), arg());
       } else if (cmd == "l") {
-        ctx.lineTo($x(arg()), $y(arg()));
+        ctx.lineTo(arg(), arg());
       } else if (cmd == "q") {
-        var x = $x(arg()), y = $y(arg());
-        ctx.quadraticCurveTo($x(arg()), $y(arg()), x, y);
+        var x = arg(), y = arg();
+        ctx.quadraticCurveTo(arg(), arg(), x, y);
       } else {
         throw new Error("Unrecognized path command: '" + cmd + "'");
       }
@@ -76,16 +80,25 @@ function line(spec) {
   }
 }
 
-function rotate(angle, f) {
+function rotate(angle) {
   ctx.save();
-  ctx.rotate(angle / (Math.PI / 180));
-  f();
-  ctx.restore();
+  ++pushDepth;
+  ctx.rotate(angle * Math.PI / 180);
 }
 
-function moveTo(x, y, f) {
+function moveTo(x, y) {
   ctx.save();
-  ctx.translate(x, -y);
-  f();
+  ++pushDepth;
+  ctx.translate(x, y);
+}
+
+function scale(factor) {
+  ctx.save();
+  ++pushDepth;
+  ctx.scale(factor, factor);
+}
+
+function goBack() {
   ctx.restore();
+  --pushDepth;
 }

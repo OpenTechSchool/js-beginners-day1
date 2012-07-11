@@ -1,15 +1,40 @@
 // use_html: drawing.html
-function drawing() {
-  var count = 0;
-  while (count < 20) {
-    if (count % 2 == 0) {
-      color("black");
-    } else {
-      color("gray");
-    }
-    circle(count * 10, 0, 4);
-    count = count + 1;
+function leaf() {
+}
+
+function branch(thickness) {
+  // Give the branches individuality by randomizing their length
+  // (between 2 and 5 times their thickness)
+  var height = thickness * (2 + Math.random() * 3);
+  // Draw this branch
+  color("black");
+  box(-thickness * 0.5, height, thickness, height);
+
+  // Go to the end of this branch
+  moveTo(0, height);
+  if (thickness < 2) {
+    // Draw a leaf, and nothing more, if this branch is very thin
+    color("purple");
+    circle(0, 0, 5);
+  } else {
+    // Draw two branches springing from this branch, rotated at
+    // 30-degree angles
+    rotate(-30);
+    branch(thickness * 0.8);
+    goBack();
+    rotate(30);
+    branch(thickness * 0.8);
+    goBack();
   }
+  // Clears the moveTo above
+  goBack();
+}
+
+function drawing() {
+  // Move down to make room for tree crown
+  moveTo(0, -200);
+  // Draw the trunk, which in turn draws branches, and so on.
+  branch(16);
 }
 
 // The following functions are available:

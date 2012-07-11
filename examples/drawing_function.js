@@ -1,25 +1,20 @@
 // use_html: drawing.html
-function circles(x, y) {
-  color("red");
-  circle(x, y, 50);
-  color("orange");
-  circle(x, y, 45);
+function smiley(x, y) {
+  moveTo(x, y);
   color("yellow");
-  circle(x, y, 40);
-  color("lightgreen");
-  circle(x, y, 35);
-  color("lightblue");
-  circle(x, y, 30);
-  color("purple");
-  circle(x, y, 25);
-  color("white");
-  circle(x, y, 20);
+  circle(0, 0, 50);
+  color("black");
+  circle(-20, 10, 7);
+  circle(20, 10, 7);
+  lineWidth(3);
+  line("g -20 -10 q 20 -10 0 -50 c");
+  goBack();
 }
 
 function drawing() {
-  circles(0, 0);
-  circles(-100, 20);
-  circles(100, 50);
+  smiley(0, 0);
+  smiley(-100, 20);
+  smiley(100, 50);
 }
 
 // The following functions are available:
@@ -40,3 +35,10 @@ function drawing() {
 // Coordinates are interpreted as if 0,0 is the center of the
 // screen. x is the horizontal axis, and y the vertical.
 // Positive x goes to the left, positive y goes up.
+// These operations can transform the coordinate system:
+//
+//  moveTo(x, y)    - move the origin to x, y
+//  rotate(degrees) - rotate subsequent drawing operations
+//                    by a number of degrees
+//  scale(factor)   - scale subsequent drawing operations
+//  goBack()        - undo one transformation

@@ -1,4 +1,5 @@
 // use_html: drawing.html
+
 // Below is a definition of a drawing.
 
 function drawing() {
@@ -29,3 +30,10 @@ function drawing() {
 // Coordinates are interpreted as if 0,0 is the center of the
 // screen. x is the horizontal axis, and y the vertical.
 // Positive x goes to the left, positive y goes up.
+// These operations can transform the coordinate system:
+//
+//  moveTo(x, y)    - move the origin to x, y
+//  rotate(degrees) - rotate subsequent drawing operations
+//                    by a number of degrees
+//  scale(factor)   - scale subsequent drawing operations
+//  goBack()        - undo one transformation

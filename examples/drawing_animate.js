@@ -1,14 +1,34 @@
 // use_html: drawing.html
+// The old smiley function from the previous step
+function smiley(x, y) {
+  moveTo(x, y);
+  color("yellow");
+  circle(0, 0, 50);
+  color("black");
+  circle(-20, 10, 7);
+  circle(20, 10, 7);
+  lineWidth(3);
+  line("g -20 -10 q 20 -10 0 -50 c");
+  goBack();
+}
+
 function drawing() {
-  var count = 0;
-  while (count < 20) {
-    if (count % 2 == 0) {
-      color("black");
-    } else {
-      color("gray");
-    }
-    circle(count * 10, 0, 4);
-    count = count + 1;
+  // The angle variable stores the current rotation
+  var angle = 0;
+  // Draw twenty frames per second (20 * 50 = 1000 milliseconds)
+  setInterval(frame, 50);
+  function frame() {
+    // Clear the screen
+    clear();
+    // Update the angle
+    angle = angle - 2;
+    // Rotate what we are about to draw
+    rotate(angle);
+    // A stick...
+    color("black");
+    box(-5, 100, 10, 150);
+    // with a smiley on top
+    smiley(0, 100);
   }
 }
 
