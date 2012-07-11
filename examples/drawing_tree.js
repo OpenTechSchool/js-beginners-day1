@@ -1,7 +1,4 @@
 // use_html: drawing.html
-function leaf() {
-}
-
 function branch(thickness) {
   // Give the branches individuality by randomizing their length
   // (between 2 and 5 times their thickness)
