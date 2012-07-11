@@ -17,11 +17,11 @@ h1 {
 }
 h2 {
   font-size: 22pt;
-  background: #eee;
+  background: #ddd;
+  margin-top: 1.5em; 
 }
 h2.step {
   background: url(footprint.png) no-repeat 99% 50%, #ddd;
-  margin-top: 2em; 
 }
 h3 {
   font-size: 18pt;

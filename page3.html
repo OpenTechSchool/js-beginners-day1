@@ -1,0 +1,151 @@
+<!doctype html>
+
+<head>
+  <title>Curriculum — page 3</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Curriculum: page 3, data</h1>
+
+<p>Inside the computer's world, there is only data. That which is not
+data, does not exist. Programs are data. Programs create new data.
+It's like some kind of strange, silicon-based cycle of life.</p>
+
+
+<h2 class=step>Collections</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p>Learn how to group a set of values into a single collection, and
+use that collection.</p>
+
+<p>Problem statement: draw a rainbow by drawing seven concentric
+circles with the following colors: <em>red, orange, yellow, green,
+cyan, purple, white</em>, each smaller than the last.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>This is the naive approach:</p>
+
+<pre>function rainbow(x, y) {
+  color("red");
+  circle(x, y, 150);
+  color("orange");
+  circle(x, y, 145);
+  color("yellow");
+  circle(x, y, 140);
+  color("green");
+  circle(x, y, 135);
+  color("cyan");
+  circle(x, y, 130);
+  color("purple");
+  circle(x, y, 125);
+  color("white");
+  circle(x, y, 120);
+}</pre>
+
+<p>That is not wrong, but it is not right either. It repeats itself a
+lot. Here is <a href="sandbox/#rainbow.js">a better version</a>:</p>
+
+<pre>function rainbow(x, y) {
+  var colors = ["red", "orange", "yellow", "green", "cyan", "purple", "white"];
+  var count = 0;
+  while (count < colors.length) {
+    color(colors[count]);
+    circle(x, y, 150 - 5 * count);
+    count = count + 1;
+  }
+}</pre>
+
+<h3 class=ex>Explanation</h3>
+
+<p>The thing with the square brackets (<strong>[</strong>
+and <strong>]</strong>) is called an array. An array is a value that
+holds other values—in this case, it holds seven strings that name
+colors.</p>
+
+<p>The values in an array are ordered, and each element has a
+position. Array positions start at zero, so in the above
+example, <code>"red"</code> has position zero,
+and <code>"white"</code> (the seventh element) has position 6. The
+notation <code>colors[1]</code> is used to access the values in an
+array—in this case, it'd produce <code>"orange"</code>.</p>
+
+<p>Another new notation, though we've seen it before
+in <code>Math.random</code> is the dot in <code>colors.length</code>.
+It is used to fetch another kind of sub-value, called property, out of
+a value. In the case of <code>Math.random</code>, it is just used for
+grouping—a whole bunch of number-related functions are available as
+properties of <code>Math</code> (for example <code>Math.round</code>
+to round numbers). But in the case of <code>colors.length</code>, it
+retrieves a property value that is directly related
+to <code>colors</code>: the amount of elements in the array
+(seven).</p>
+
+<p>So this typical <code>while</code> loop, using
+the <code>count</code> variable to track its progress, goes over the
+elements of the array one by one, uses them to set the current color,
+and then draws a circle of the right size.</p>
+
+<p>Since this kind of loop is very common (create variable, test it
+in <code>while</code> condition, and update it), there is a more
+compact way to write it. This program is equivalent to the one
+above:</p>
+
+<pre>function rainbow(x, y) {
+  var colors = ["red", "orange", "yellow", "green", "cyan", "purple", "white"];
+  for (var count = 0; count < colors.length; count = count + 1) {
+    color(colors[count]);
+    circle(x, y, 150 - 5 * count);
+  }
+}</pre>
+
+<p>In a <code>for</code> loop, initializing the loop state, checking
+it, and updating it, are all grouped together, to make it easier to
+see that they belong together.</p>
+
+
+<h2 class=step></h2>
+
+<h3 class=goal>Goal</h3>
+
+<p></p>
+
+<h3 class=inst>Instructions</h3>
+
+<h3 class=ex>Explanation</h3>
+
+
+<h2 class=step>Collecting things</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p></p>
+
+<h3 class=inst>Instructions</h3>
+
+<h3 class=ex>Explanation</h3>
+
+
+<h2 class=step>Collecting things</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p></p>
+
+<h3 class=inst>Instructions</h3>
+
+<h3 class=ex>Explanation</h3>
+
+
+<h2 class=step>Collecting things</h2>
+
+<h3 class=goal>Goal</h3>
+
+<p></p>
+
+<h3 class=inst>Instructions</h3>
+
+<h3 class=ex>Explanation</h3>
