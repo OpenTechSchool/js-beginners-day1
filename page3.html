@@ -104,7 +104,7 @@ above:</p>
 
 <p>In a <code>for</code> loop, initializing the loop state, checking
 it, and updating it, are all grouped together, to make it easier to
-see that they belong together.</p>
+see that they make up a single loop.</p>
 
 
 <h2 class=step>Named properties</h2>
@@ -135,7 +135,9 @@ yourself that it worked.</p>
 <p>Objects are also collections of values. But they require every
 value to have a name. Arrays are useful when collecting any number of
 values in a homogenous group, whereas objects are more when each value
-has a specific, distinct role.</p>
+has a specific, distinct role. I.e. a big bag of potatoes is an array,
+but the parts that make up a car (engine, wheels, each with their own
+role) form an object.</p>
 
 <p>The <code>{property1: value1, property2: value2}</code> syntax is
 used to create a new object. There are two ways to access the
@@ -165,8 +167,8 @@ for a chess game board. There are multiple good solutions.</p>
 
 <p>In our new playground environment, we have a new variable
 available, <code>countryData</code>. This contains an array of objects
-with some information (population, life expectancy) about a lot of
-countries.</p>
+with information (population, life expectancy) about almost all
+countries on earth..</p>
 
 <p>Each object (representing a country), has a <code>name</code>
 property containing a string, and <code>population</code>
@@ -243,11 +245,11 @@ the <code>width</code> and <code>height</code> variables to place the
 lines properly.</p>
 
 <p>If you're feeling motivated, you can also add textual labels (using
-the <code>text(x, y, string)</code> function) and/or a scale for the
-years to the graph.</p>
+the <code>text(x, y, string)</code> function) and/or a horizontal
+scale for the years.</p>
 
 <p><strong>Exercise:</strong> Change the <code>showCountry</code>
-function to draw a line instead of a series of dots.</p>
+function to draw a solid line instead of a series of dots.</p>
 
 
 <h2 class=step>Transforming data</h2>
@@ -277,14 +279,15 @@ for (var i = 0; i < 10; i = i + 1) {
   newArray.push(i);
 }</pre>
 
-<p>The <code>push</code> function that is a property (<em>method</em>)
-of an array is used to add an element.</p>
+<p>The <code>push</code> function, which is a property
+(<em>method</em>) of every array value, is used to add an element the
+array.</p>
 
 <p>To figure out the correct vertical scale for your graph, keep track
 of the maximum world population in the whole dataset (either
 using <code>if</code> with the <code>></code> operator, or
 the <code>Math.max</code> function, which can be given two arguments
-and will returns the greatest of the two.</p>
+and will returns the greatest of the two).</p>
 
 <h3 class=ex>Explanation</h3>
 
@@ -296,7 +299,7 @@ year.</p>
 <p>But still, by using a loop inside of a loop, with the outer loop
 going over the years (use, for
 example, <code>countryData[0].population.length</code> to know the
-amount of years to go over) and the inner loop going over the
+total amount of years to loop over) and the inner loop going over the
 countries. It can then pick out the population for the current year
 from each country, and add it to the sum (which should be reset to
 zero at the start of every repetition of the outer loop).</p>
@@ -312,8 +315,8 @@ data:</p>
   (You can get their full name by using the <code>regionName</code>
   function that is supplied along with the data.) Try to display a
   diagram that shows the percentages of the world population living in
-  each of these regions, in each year (for example by using colored
-  bars).</li>
+  each of these regions, in each year (for example by showing a
+  vertical stack of colored bars for each year).</li>
   <li>The country objects also contain a <code>fertility</code>
   property that, for each year, gives the country's fertility rate.
   Plot a two-dimensional picture for a certain year, which shows the
