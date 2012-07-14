@@ -42,6 +42,7 @@ window.onload = function() {
 
 function loadFile() {
   var file = document.location.hash.slice(1);
+  document.title = "Sandbox: " + file;
   var m = file.match(/^(.*)\.(\w+)$/);
   if (m && m[2] == "html") mode = "html";
   else mode = "javascript";

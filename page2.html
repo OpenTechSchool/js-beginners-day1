@@ -27,12 +27,12 @@ page</a> in a new tab.</p>
 
 <p>Render it. Rejoice.</p>
 
-<p>Go back to the 'Code' view (button on the top left of the screen)
+<p>Go back to the 'Edit' view (button on the bottom left of the screen)
 and read the first part of the JavaScript program.</p>
 
 <p>Randomly play around with the content of the <code>drawing</code>
-function. Change some numbers and colors, render again. Now add some
-new shapes.</p>
+function. Change some numbers and colors, render again. Now read the
+text below the program and add some new shapes.</p>
 
 <h3 class=ex>Explanation</h3>
 
@@ -49,10 +49,10 @@ computer won't even look at it.</p>
 
 <p>If you are wondering what <code>function drawing() {</code> and all
 that means, read right on, we will get to that in a few steps. In
-short, it is the entry point used by the 'sandbox' convenience code
-that we're using, at this stage, to hide the raw ugly details of
-programming for the browser. It is a function that is automatically
-called when the page is loaded.</p>
+short, it is the starting point used by the graphics sandbox
+convenience code that we're using, at this stage, to hide the raw ugly
+details of programming for the browser. It is a function that is
+automatically called when the page is loaded.</p>
 
 
 <h2 class=step>The loop</h2>
@@ -101,9 +101,9 @@ strictly required.</p>
 <p>The example code uses a variable to track its progress.
 The <code>count</code> variable starts at zero, and is moved forward
 by one every time the loop body executes. A loop condition is a
-regular expression, and the <code>&lt;</code> symbol is a regular
+normal expression, and the <code>&lt;</code> symbol is a normal
 operator that compares two expressions and returns a value that
-indicates whether the one on the left is smaller than the one on the
+indicates whether the one to the left is smaller than the one to the
 right. Thus, we can expect the loop body to be executed exactly twenty
 times—first with <code>count</code> at zero, then at one, and so on
 until nineteen. When it reaches twenty, the condition no longer holds,
@@ -153,9 +153,9 @@ while (count < 20) {
 
 <p>The first new concept introduced here is the <code>%</code>
 operator. This is pronounced 'remainder'. It is not a very important
-operator. What it does is divide the value on the left by the one on
-the right, and return the remainder of that division.
-Thus, <code>count % 2 == 0</code> is a way to check
+operator, but it is useful here. What it does is divide the value on
+the left by the one on the right, and give us the remainder of that
+division. Thus, <code>count % 2 == 0</code> is a way to check
 whether <code>count</code> is even—if it is, then the remainder of
 dividing it by two will be zero.</p>
 
