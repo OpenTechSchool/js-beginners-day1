@@ -19,7 +19,7 @@ function showWorldPopulation() {
 }
 
 function drawing() {
-  moveTo(-width * 0.5, -height * 0.5);
+  moveTo(-width / 2, -height / 2);
   color("silver");
   line(0, 0, width, 0);
   line(0, 0, 0, height);

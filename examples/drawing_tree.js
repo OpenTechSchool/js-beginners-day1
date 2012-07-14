@@ -5,7 +5,7 @@ function branch(thickness) {
   var height = thickness * (2 + Math.random() * 3);
   // Draw this branch
   color("black");
-  box(-thickness * 0.5, height, thickness, height);
+  box(-thickness / 2, height, thickness, height);
 
   // Go to the end of this branch
   moveTo(0, height);

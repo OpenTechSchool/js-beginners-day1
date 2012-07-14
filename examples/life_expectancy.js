@@ -10,7 +10,7 @@ function showCountry(country) {
 }
 
 function drawing() {
-  moveTo(-width * 0.5, -height * 0.5);
+  moveTo(-width / 2, -height / 2);
   color("red");
   showCountry(countryData[66]); // Germany
   color("green");
