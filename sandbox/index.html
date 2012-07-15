@@ -21,11 +21,17 @@
       transition: top .5s ease;
       z-index: 5; background: white;
     }
-    #controls {
-      position: absolute; top: -40px; left: 0; right: 0; height: 30px;
-      padding: 5px 10px; background: #eee;
-      border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; margin-top: -1px;
+    #controls, #save-load {
       font-size: 13px;
+      padding: 5px 10px;
+      position: absolute; top: -40px; height: 30px;
+    }
+    #controls {
+      left: 0; right: 0; background: #eee;
+      border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; margin-top: -1px;
+    }
+    #save-load {
+      z-index: 2; right: 0;
     }
     .CodeMirror-gutter {
       background: #eee; border-right: 1px solid #ddd;
@@ -38,7 +44,7 @@
       z-index: 4;
       border: none;
     }
-    button {
+    button, select {
       font-family: inherit;
       font-size: inherit;
     }
@@ -50,5 +56,9 @@
     <button onclick="render()">Render</button>
     <button onclick="edit()" id="editbutton" disabled>Edit</button>
     <span id=docname></span>
+  </div>
+  <div id=save-load>
+    <button onclick="save()">Save as</button> <input id=savename type=text style="width: 4em; vertical-align: bottom">
+    <select id="load" disabled onchange="load()"><option value="*">Load…</option></select>
   </div>
 </div>

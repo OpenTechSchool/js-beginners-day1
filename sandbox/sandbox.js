@@ -40,9 +40,46 @@ window.onload = function() {
   loadFile();
 };
 
+function updateLoadList(filename) {
+  if (!window.localStorage) {
+    document.getElementById("save-load").style.display = "none";
+    return;
+  }
+  var saved = [], test = filename + "-";
+  for (var field in localStorage) {
+    if (field.slice(0, test.length) == test)
+      saved.push(field.slice(test.length));
+  }
+  var load = document.getElementById("load");
+  var opts = "<option value=\"*\">Load…</option>";
+  for (var i = 0; i < saved.length; ++i)
+    opts += "<option value=\"" + htmlEsc(test + saved[i]) + "\">" + htmlEsc(saved[i]) + "</option>";
+  load.innerHTML = opts;
+  load.options[0].selected = true;
+  load.disabled = saved.length == 0;
+}
+
+function load() {
+  var load = document.getElementById("load"), val = load.value;
+  if (val == "*") return;
+  editor.setValue(localStorage[val]);
+}
+
+function save() {
+  var name = document.getElementById("savename").value;
+  var file = document.location.hash.slice(1);
+  for (var i = 1; !name; ++i) {
+    if (!localStorage.hasOwnProperty(file + "-" + i))
+      name = i;
+  }
+  localStorage[file + "-" + name] = editor.getValue();
+  updateLoadList(file);
+}
+
 function loadFile() {
   var file = document.location.hash.slice(1);
   document.title = "Sandbox: " + file;
+  updateLoadList(file);
   var m = file.match(/^(.*)\.(\w+)$/);
   if (m && m[2] == "html") mode = "html";
   else mode = "javascript";
@@ -103,4 +140,10 @@ function edit() {
   }, 700);
   state = "edit";
   document.getElementById("editbutton").disabled = true;
+}
+
+var dummy = document.createElement("div");
+function htmlEsc(str) {
+  dummy.textContent = str;
+  return dummy.innerHTML;
 }
