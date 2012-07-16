@@ -54,7 +54,7 @@ function distance(obj1, obj2) {
 function processBullets() {
   for (var b = 0; b < bullets.length; b = b + 1) {
     var bullet = bullets[b];
-    bullet.y = bullet.y + 6;
+    bullet.y = bullet.y + 12;
     drawBullet(bullet);
     if (bullet.y > height)
       bullet.alive = false;
@@ -74,7 +74,7 @@ function processBullets() {
 function processInvaders() {
   for (var i = 0; i < invaders.length; i = i + 1) {
     var invader = invaders[i];
-    invader.y = invader.y - 3;
+    invader.y = invader.y - 2;
     drawInvader(invader);
     if (invader.y < 0) {
       gameOver = true;
