@@ -99,7 +99,7 @@ function frame() {
   // that a new invader is added.
   // The ! operator means 'not', the && operator means 'and'.
   // So this says 'if not gameOver and Math.random() is less than 0.03'
-  if (!gameOver && Math.random() < 0.03)
+  if (!gameOver && Math.random() < 0.05)
     newInvader();
 
   // Clear the view.
