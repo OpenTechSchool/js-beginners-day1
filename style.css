@@ -18,7 +18,7 @@ h1 {
 h2 {
   font-size: 22pt;
   background: #ddd;
-  margin-top: 1.5em; 
+  margin-top: 1.5em;
 }
 h2.step {
   background: url(footprint.png) no-repeat 99% 50%, #ddd;
@@ -37,4 +37,8 @@ div.box {
 
 pre {
   padding-left: 20px;
+}
+
+p {
+  padding-right: 40px;
 }
