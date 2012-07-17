@@ -65,6 +65,7 @@ function maybeStartResize(e) {
     if (frame) frame.style.display = "";
     window.removeEventListener("mousemove", drag, false);
     window.removeEventListener("mouseup", done, false);
+    if (window.localStorage) localStorage.editorSize = editorSize;
   }
   window.addEventListener("mousemove", drag, false);
   window.addEventListener("mouseup", done, false);
