@@ -15,20 +15,24 @@
   <style>
     body, html { height: 100%; width: auto; max-width: none; margin: 0; padding: 0; overflow: hidden; }
     #editor {
-      position: absolute; top: 40px; left: 0; right: 0; bottom: 0;
-      -webkit-transition: top .5s ease;
-      -moz-transition: top .5s ease;
-      transition: top .5s ease;
-      z-index: 5; background: white;
+      padding-top: 40px;
+      background: white;
+      position: relative;
     }
     #controls, #save-load {
       font-size: 13px;
       padding: 5px 10px;
-      position: absolute; top: -40px; height: 30px;
+      position: absolute; top: 0px; height: 30px;
     }
     #controls {
+      cursor: move;
+      cursor: s-resize;
+      cursor: row-resize;
       left: 0; right: 0; background: #eee;
       border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; margin-top: -1px;
+    }
+    #controls * {
+      cursor: default;
     }
     #save-load {
       z-index: 2; right: 0;
@@ -40,21 +44,20 @@
       font-family: MenschRegular, Menlo, Monaco, consolas, monospace;
       font-size: 16px;
     }
-    #frame {
-      z-index: 4;
-      border: none;
-    }
     button, select {
       font-family: inherit;
       font-size: inherit;
     }
+    iframe {
+      border: none;
+    }
   </style>
 </head>
 
+<div id=output></div>
 <div id=editor>
   <div id=controls>
     <button onclick="render()">Render</button>
-    <button onclick="edit()" id="editbutton" disabled>Edit</button>
     <span id=docname></span>
   </div>
   <div id=save-load>
@@ -62,3 +65,4 @@
     <select id="load" disabled onchange="load()"><option value="*">Load…</option></select>
   </div>
 </div>
+

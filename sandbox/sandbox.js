@@ -1,5 +1,9 @@
 var mode = "javascript", wrap = null;
-var frame, editorDiv, editor;
+var frame, editorDiv, frameDiv, editor;
+
+var editorSize = 50;
+if (window.localStorage && localStorage.hasOwnProperty("editorSize"))
+  editorSize = Number(localStorage.editorSize);
 
 function getFile(file, c, showErr) {
   var xhr = new XMLHttpRequest();
@@ -13,21 +17,23 @@ function getFile(file, c, showErr) {
   xhr.send(null);
 }
 
-var state = "edit";
-
 function resize() {
-  editor.getScrollerElement().style.height = editorDiv.clientHeight + "px";
+  var total = document.body.clientHeight;
+  var top = total * editorSize / 100, bottom = total - top;
+  editorDiv.style.height = (top - 40) + "px";
+  editor.getScrollerElement().style.height = (editorDiv.clientHeight - 40) + "px";
+  frameDiv.style.height = bottom + "px";
   if (frame) resizeFrame();
-  if (state == "view") editorDiv.style.top = document.body.clientHeight + "px";
 }
 
 function resizeFrame() {
-  frame.style.width = document.body.clientWidth + "px";
-  frame.style.height = (document.body.clientHeight - document.getElementById("controls").offsetHeight) + "px";
+  frame.style.width = frameDiv.clientWidth + "px";
+  frame.style.height = frameDiv.clientHeight + "px";
 }
 
 window.onload = function() {
   editorDiv = document.getElementById("editor");
+  frameDiv = document.getElementById("output");
   editor = CodeMirror(editorDiv, {
     lineNumbers: true,
     lineWrapping: true,
@@ -35,10 +41,34 @@ window.onload = function() {
     matchBrackets: true,
   });
   window.addEventListener("resize", resize, false);
+  document.getElementById("controls").addEventListener("mousedown", maybeStartResize, false);
   resize();
 
   loadFile();
 };
+
+function maybeStartResize(e) {
+  if (e.target != document.getElementById("controls")) return;
+  e.preventDefault();
+  var curY = e.clientY, startY = curY, startHeight = parseInt(editorDiv.style.height) + 40;
+  if (frame) frame.style.display = "none";
+  function drag(e) {
+    var dY = e.clientY - curY;
+    if (Math.abs(dY) > 3) {
+      curY = e.clientY;
+      var curHeight = Math.max(45, startHeight + (startY - curY));
+      editorSize = Math.min(100, Math.floor(curHeight * 100 / document.body.clientHeight));
+      resize();
+    }
+  }
+  function done() {
+    if (frame) frame.style.display = "";
+    window.removeEventListener("mousemove", drag, false);
+    window.removeEventListener("mouseup", done, false);
+  }
+  window.addEventListener("mousemove", drag, false);
+  window.addEventListener("mouseup", done, false);
+}
 
 function updateLoadList(filename) {
   if (!window.localStorage) {
@@ -98,11 +128,11 @@ function loadFile() {
       editor.setValue(txt);
       getFile(htmlfile, function(txt) {
         wrap = txt;
-        if (state == "view") render();
+        render();
       }, true);
     } else {
       editor.setValue(txt);
-      if (state == "view") render();
+      render();
     }
   }, true);
 }
@@ -112,12 +142,11 @@ window.addEventListener("hashchange", loadFile, false);
 function showError(msg) { alert(msg); }
 
 function render() {
-  editorDiv.style.top = document.body.clientHeight + "px";
   if (frame) frame.parentNode.removeChild(frame);
   frame = document.createElement("iframe");
   frame.src = "about:blank";
+  frameDiv.appendChild(frame);
   resizeFrame();
-  document.body.appendChild(frame);
   setTimeout(function() {
     var doc = frame.contentWindow.document;
     doc.open();
@@ -128,18 +157,6 @@ function render() {
     }
     doc.close();
   }, 50);
-  state = "view";
-  document.getElementById("editbutton").disabled = false;
-}
-
-function edit() {
-  editorDiv.style.top = "40px";
-  setTimeout(function() {
-    if (frame) { frame.parentNode.removeChild(frame); frame = null; }
-    editor.getScrollerElement().style.height = editorDiv.clientHeight + "px";
-  }, 700);
-  state = "edit";
-  document.getElementById("editbutton").disabled = true;
 }
 
 var dummy = document.createElement("div");
