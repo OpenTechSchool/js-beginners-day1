@@ -1,0 +1,323 @@
+<!doctype html>
+
+<head>
+  <title>Kursmaterial — Seite 2</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Kursmaterial: Seite 2, Bilder</h1>
+
+<p>Die vorige Seite hat Dir genau, Wort für Wort, gesagt was Du
+  tun sollst, ohne Dir die Wahl zu lassen. Wir möchten uns für
+  diese schamlose Unterdrückung deiner künstlerischen Identität
+  entschuldigen. Da Du jetzt die Grundlagen schon kennst, wird
+  das Kursmaterial ab sofort etwas weniger linear sein und Dir
+  mehr Spielraum zum Experimentieren lassen.</p>
+
+<h2 class=step>Den Bilder-Spielplatz öffnen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Mache Dich mit unserer visuellen Programmierumgebung vertraut.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne die <a href="sandbox/#drawing.js" target=_blank>Spielplatz-Seite</a>
+  in einem neuen Tab.</p>
+
+<p>Frohlocke.</p>
+
+<p>Lies den ersten Abschnitt des JavaScript-Programms im unteren
+  Teil des Bildschirms.</p>
+
+<p>Spiel ein bisschen mit dem Inhalt der <code>drawing</code>-Funktion
+  herum. Verändere ein paar Werte und Farben und klicke immer wieder
+  auf 'Render' um das Ergebnis zu sehen. Lies Dir danach den Text
+  unter dem Programm durch und füge ein paar neue Formen hinzu.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Wir verwenden hier etwas das leicht beobachtbar ist, um ein
+  Gefühl für Konzepte der Programmierung zu bekommen: Grafiken.
+  Die Spielplatz-Seite hat eine Anzahl praktischer
+  Zeichen-Operationen für uns vordefiniert und lädt uns ein
+  mit ihnen zu experimentieren.</p>
+
+<p>Im unteren Teil des Programms gibt es eine ganze Reihe von Zeilen,
+  die mit zwei Schrägstrichen (<code>//</code>) anfangen. Man nennt
+  diese Zeilen <em>Kommentare</em>. Sie helfen das Programm zu
+  verstehen, aber sind nicht selbst Teil des Programms.
+  In einem Kommentar kannst Du schreiben was Du willst—der
+  Computer schaut sich das sowieso nie an.</p>
+
+<p>Die Programme, die Du auf den Spiele-Seiten eingibst, laufen nicht
+  im Vakuum. Für diesen Kurs haben wir eine Reihe von einfachen
+  Funktionen vordefiniert, mit denen man grafische Operation
+  ausführen kann. Sie sind im Kommentar des Beispiels beschrieben
+  und Dein Programm kann auf sie Bezug nehmen.</p>
+
+<p>Das Code-Stück <code>function drawing()</code> definiert
+  eine Funktion mit dem Namen <code>drawing</code>. In ein paar
+  Schritten werden wir mehr über die Definition von Funktionen
+  erfahren, aber diese eine Definition ist speziell: Sie wird
+  immer ausgeführt, wenn Du den 'Render'-Button klickst. Dort
+  gehören also die Anweisungen (englisch: Statements) hin, die
+  Dein Bild produzieren.</p>
+
+
+<h2 class=step>Die Schleife</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Lernen was eine Schleife ist, und wie man sie in JavaScript ausdrückt.</p>
+
+<p>Das Problem: Wir wollen zwanzig Punkte malen ohne
+  <code>circle(x, y, something)</code> zwanzigmal hinzuschreiben.</p>
+
+<h3 class=inst>Instructions</h3>
+
+<p>Öffne <a href="sandbox/#drawing_loop.js" target=_blank>diesen Link</a>,
+  um zu einer <code>drawing</code>-Funktion mit folgendem Programm zu
+  gelangen:</p>
+
+<pre>color("red");
+var count = 0;
+while (count < 20) {
+  circle(count * 10, 0, 4);
+  count = count + 1;
+}</pre>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Solange man seinem Programm nichts anderes beibringt, wird es
+  seine Anweisungen einfach von oben nach unten ausführen.
+  Das Großartige daran, einen Computer für uns arbeiten zu lassen,
+  ist, dass er uns eintönige Aufgaben abnehmen kann.
+  Daher wollen wir gar nicht erst anfangen, <code>cicle(0, 0, 4); circle(10, 0, 4);</code>
+  usw. zu schreiben, um unsere Punkte zu malen.</p>
+
+<p>Mit dem Wort <code>while</code> ("während") kann man eine besondere
+  Art von Anweisungen einleiten, die man <em>Schleifen</em> nennt
+  (englisch: <em>loop</em>). Eine Schleife besteht aus einer
+  <em>Bedingung</em> (englisch: <em>condition</em>) und einem
+  <em>Schleifenkörper</em> (englisch: <em>body</em>. Im Beispiel
+  ist <code>count &lt; 20</code> die Bedingung und der Körper ist
+  alles was zwischen den geschweiften Klammern steht.
+  Eine Schleife hält sich nicht an die gewöhnliche Top-Down-Reihenfolge.
+  Stattdessen wiederholt sie den Körper so lange, wie die Bedingung
+  wahr ist.</p>
+
+<p>Die geschweiften Klammern halten die zwei Anweisungen im
+  Inneren der Schleife zusammen—sie machen deutlich, dass beide
+  zum Schleifenkörper gehören. Wahrscheinlich ist Dir aufgefallen,
+  dass diese Zeilen etwas eingerückt sind. Das macht man, um
+  Programme leichter lesbar zu machen (in diesem Fall, um es
+  offensichtlicher zu machen wo der Block anfängt und aufhört).
+  Unbedingt erforderlich ist es aber nicht.</p>
+
+<p>Im Beispiel verwendet die Schleife eine Variable als inneren
+  Fortschritts-Anzeiger. Die Variable <code>count</code> fängt
+  mit dem Wert null an und wird jedesmal, wenn der Schleifenkörper
+  ausgeführt wird, um eins erhöht. Eine Bedingung ist ein ganz
+  normaler Ausdruck und das Symbol <code>&lt;</code> ist ein
+  gewöhnlicher Operator, der zwei Ausdrücke miteinander vergleicht
+  und als Wert etwas zurückgibt, dass angibt ob der Wert auf der
+  linken Seite kleiner ist als der auf der rechten Seite.
+  Also können wir erwarten, dass der Schleifenkörper genau
+  zwanzigmal ausgeführt wird—beim ersten Mal mit <code>count</code>
+  bei null, dann bei eins und so weiter, bis 19.
+  Wenn <code>count</code> 20 erreicht, ist die Bedingung nicht
+  mehr gültig und das Programm wird hinter der Schleife fortgesetzt
+  (was in unserem Fall das Ende des Beispiels ist).</p>
+
+<p>Es gibt noch ein paar interessante Dinge über den
+  <code>&lt;</code>-Operator zu sagen. Der Wert, den er produziert,
+  ist keine Zahl und kein String, sondern ein neuer Typ, genannt
+  <em>Boolean</em>. Dieser Typ hat nur zwei mögliche Werte:
+  <code>true</code> und <code>false</code>. Andere Operatoren,
+  die solche Werte produzieren, sind <code>></code> (größer als)
+  und <code>==</code> (gleich).</p>
+
+<p><strong>Übung:</strong> Versuche ein Programm zu schreiben,
+  das ein <em>Raster</em> von 20 mal 20 Punkten malt, statt nur
+  einer Linie. Dafür brauchst Du zwei Schleifen und zwei
+  Variablen zum Zählen.</p>
+
+<p>Während Du Programme in der Spielumgebung ausprobierst, halte
+  ein Auge auf die Browser-Konsole. Wenn der Computer nicht
+  versteht, was Dein Programm ihm sagen will, wird er Dir das
+  dort (in mehr oder weniger verständlicher Form) mitteilen.
+  Wenn nichts passiert wenn Du 'Render' klickst, hast Du Dich
+  wahrscheinlich irgendwo vertippt.</p>
+
+
+<h2 class=step>Bedingte Ausführung</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Als Nächstes wollen wir jeden zweiten Punkt unserer Punkt-Linien
+  in einer anderen Farbe malen. Es soll immer ein Punkt schwarz sein
+  und der nächste grau.</p>
+
+<p>Dafür werden wir etwas über bedingte Anweisungen lernen.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Das Programm, das das tut was wir wollen, wenn wir
+  es in die <code>drawing</code>-Funktion packen, ist
+  <a href="sandbox/#drawing_if.js" target=_blank>hier</a>
+  verfügbar und sieht so aus:</p>
+
+<pre>var count = 0;
+while (count < 20) {
+  if (count % 2 == 0) {
+    color("black");
+  } else {
+    color("gray");
+  }
+  circle(count * 10, 0, 4);
+  count = count + 1;
+}</pre>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Das erste neue Konzept hier ist der Operator <code>%</code>,
+  gesprochen 'Modulo'. Man braucht ihn nicht so häufig, aber hier
+  ist er nützlich. Er teil die Zahl auf der linken Seite durch die
+  auf der rechten Seite und gibt den Rest der Division zurück.
+  Mit <code>count % 2 == 0</code> kann man also prüfen, ob
+  <code>count</code> eine gerade Zahl ist, denn dann ist der
+  Rest null, wenn man sie durch zwei teilt.</p>
+
+<p>Das eigentlich <em>wichtige</em> neue Konzept hier ist die
+  Anweisung <code>if</code>/<code>else</code>. Sie hat mit der
+  Schleife die Gemeinsamkeit, dass sie eine Bedingung enthält.
+  Wenn die Bedingung wahr (<code>true</code>) ist, wird die
+  darauf folgende Anweisung ausgeführt. Wenn nicht, führt es
+  die Anweisung aus, die nach dem <code>else</code> kommt.</p>
+
+<p>Der <code>else</code>-Teil kann auch weggelassen werden, um
+  anzuzeigen, dass gar nichts passieren soll, wenn die Bedingung
+  nicht gilt.</p>
+
+<p><strong>Übung:</strong> Erweitere das Beispiel-Programm so,
+  dass jeder dritte Punkt um 10 Einheiten nach oben verschoben
+  erscheint. Hinweis: Definiere eine Variable <code>height</code>
+  und setze ihren Wert innerhalb einer bedingten Anweisung.</p>
+
+
+<h2 class=step>Funktionen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Stell Dir vor wir wollten mehrere fröhliche Gesichter
+  (englisch: Smileys) an verschiedenen Stellen auf dem Bildschirm
+  platzieren. Wir könnten natürlich die sechs Anweisungen wiederholen,
+  die zum Malen einer solchen Form benötigt werden, aber wir
+  wollen ja den Computer für uns <strong>arbeiten</strong> lassen.</p>
+
+<p>Wir werden lernen, wie man neue Funktionen definiert, um
+  nützliche Operationen für uns auszuführen.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Hier ist die <code>smiley</code>-Function:</p>
+
+<pre>function smiley(x, y) {
+  moveTo(x, y);
+  color("yellow");
+  circle(0, 0, 50);
+  color("black");
+  circle(-20, 10, 7);
+  circle(20, 10, 7);
+  lineWidth(3);
+  path("g -20 -10 q 20 -10 0 -50 c");
+  goBack();
+}</pre>
+
+<p>Du kannst sie in Deinen Code vor (oder hinter) die
+  <code>drawing</code>-Funktion packen und diese dann umschreiben,
+  sodass sie die neue Funktion aufruft.
+  <a href="sandbox/#drawing_function.js" target=_blank>So zum Beispiel</a>:</p>
+
+<pre>function drawing() {
+  smiley(0, 0);
+  smiley(-100, 20);
+  smiley(100, 50);
+}</pre>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Eine Funktion ist im Prinzip eine abgekürzte Schreibweise
+  für ein Stück Code. Man definiert sie mit dem Wort
+  <code>function</code>, wie oben zu sehen ist. Das erzeugt
+  eine Variable mit dem gewählten Namen (in diesem Fall
+  <code>smiley</code>), der für das Stück Code steht.
+  Die Wörter hinter dem Funktionsnamen—<code>(x, y)</code>—sind
+  die <em>Parameter</em> der Funktion.
+  Sie erhalten ihren Wert wenn die Funktion aufgerufen wird.
+  Zum Beispiel würde <code>smiley(0, 0)</code> den Körper der
+  Funktion ausführen und dabei sowohl <code>x</code> als auch
+  <code>y</code> den Wert null geben.</p>
+
+<p>Eine Sache, die man beachten muss, ist dass Variablen, die
+  innerhalb von Funktionen definiert werden (einschließlich ihrer
+  Parameter), <em>lokal</em> zu dieser Funktion sind.
+  Also wenn Du eine zweite Funktion hast, die auch einen
+  <code>x</code>-Parameter hat, wie zum zum Beispiel
+  <code>circle</code>, dann sind die beiden <code>x</code>-Variablen
+  unabhängig voneinander und beeinflussen sich nicht gegenseitig.
+  Innerhalb von <code>smiley</code> steht <code>x</code>
+  immer für das <code>x</code>, das in <code>smiley</code> definiert ist,
+  und in einer anderen Funktion würde eben das <code>x</code>
+  gemeint sein, das im Kontext dieser Funktion als Variable
+  existiert.</p>
+
+<p><strong>Übung:</strong> Definiere eine Funktion
+  <code>smileySquadron</code>, die zwei Parameter nimmt (<code>x</code>
+  und <code>y</code>) nimmt und fünf Smileys oder so nebeneinander malt.
+  Verwende dafür eine <code>while</code>-Schleife.
+  Und wenn das funktioniert, male so viele Smileys wie Du möchtest!</p>
+
+
+<h2 class=step>Kreativ-Zone</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Erfinde Dein eigenes, unterhaltsames, grafisches Programm.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Hier sind ein paar Dinge, die nützlich sein könnten:</p>
+
+<p><code>Math.random()</code> produziert Zufallszahlen zwischen 0 und 1.
+  <code>Math.random() * 10</code> gibt also eine unvorhersehbare Zahl
+  zwischen null und zehn zurück, usw.</p>
+
+<p>Mit <code>setInterval(func, n)</code> kann man eine Funktion
+  alle <code>n</code> Millisekunden abfahren. Wenn Du sie mit
+  der Funktion <code>clear</code> verknüpfst, kannst Du eine
+  Animationen erstellen. Ein Beispiel dafür findest Du
+  <a href="sandbox/#drawing_animate.js" target=_blank>hier</a>.</p>
+
+<p>Die Funktionen <code>moveTo</code>, <code>rotate</code>,
+  <code>scale</code> und <code>goBack</code>, die in der
+  Spielumgebung definiert sind, können mit Funktionen kombiniert
+  werden, die sich selbst aufrufen, um so sehr einfach hierarchische,
+  fraktale Grafiken zu erstellen.
+  Schau Dir als Beispiel
+  <a href="sandbox/#drawing_tree.js" target=_blank>diesen Baum</a>
+  an.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Am meisten lernt man wenn man selbst etwas tut.
+Tob Dich aus. Denk Dir etwas Aufwändiges aus.
+Und wenn Du nicht genau weißt, wie Du Deine Pläne umsetzen kannst:
+Nun, dafür sind die Coaches da.</p>
+
+<h2>Und weiter geht's…</h2>
+
+<p><a href="page3_de.html">→ …mit der dritten Seite</a>.</p>
