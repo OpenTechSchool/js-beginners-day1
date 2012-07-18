@@ -1,0 +1,249 @@
+<!doctype html>
+
+<head>
+  <title>Kursmaterial — Seite 1</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Kursmaterial: Seite 1, Die Grundlagen</h1>
+
+<p>Wir lernen wie man die JavaScript-Konsole des Browsers verwendet
+  und ein paar grundlegende Dinge programmiert.</p>
+
+
+<h2 class=step>Die Konsole öffnen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Die JavaScript-Konsole Deines Browsers verwenden.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Unter Windows und Linux: Drücke im geöffneten Chrome-Browser Strg+Shift+J.
+  Unter OS X: Command+Option+J. (Halte die beiden ersten Tasten
+  gedrückt und drücke dann J.)</p>
+
+<p>Alternativ kannst Du auch auf das Schraubenschlüssel-Symbol in der
+  rechten oberen Ecke des Browser-Fensters klicken und im sich öffnenden
+  Menü <code>Tools</code> ▸ <code>JavaScript Console</code> auswählen.</p>
+
+<p>Die Konsole sollte nun im unteren Teil des Browser-Fensters erscheinen.</p>
+
+<p>Verändere die Größe der Konsole indem Du den oberen Rand mit der Maus ziehst.</p>
+
+<p>Klicke alle Icons der Reihe nach durch, um ganz wunderbar kompliziert
+  aussehende Diagramme und technischen Schnick-Schnack zu bestaunen.
+  Von nun an ist das <strong>Deine</strong> Steuerzentrale.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Die Konsole ist ein nützliches, praktisches Werkzeug, das Dir Zugang
+  zum Innenleben von Webseiten gibt. Mit ihm kannst Du genau sehen, aus
+  welchen Einzelteilen eine Seite zusammengesetzt ist (im 'Elements'-Tab)
+  und aus welchen Dateien sie besteht. Du kannst Probleme diagnostizieren,
+  und, was für uns am allerwichtigsten ist, Du kannst mit der
+  JavaScript-Umgebung der jeweils aktuellen Seite spielen.</p>
+
+<p>Erwarte nicht, dass Du jetzt schon verstehen musst, wozu die
+  ganzen Funktionen der Konsole da sind. Das meiste davon werden
+  wir in diesem Kurs nicht benötigen, und die Teile, die Du brauchst,
+  wirst Du rechtzeitig erklärt bekommen.</p>
+
+<h2 class=step>Dein erstes Stück Code eingeben</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Etwas JavaScript eintippen und sehen was es tut.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Gehe zum 'Console'-Tab, ganz rechts in der Browser-Konsole.</p>
+
+<p>Tippe einfach wirres Zeug hinter dem <strong>></strong>-Zeichen ein,
+  und and drücke Enter.</p>
+
+<p>Jetzt tippe <code>1 + 1</code> and drücke Enter.</p>
+
+<p>Dann tippe <code>alert("Dieser Computer tut was [Name] ihm sagt")</code>.
+  Achte auf die doppelten Anführungszeichen und Klammern.
+  Ersetze <code>[Name]</code> mit Deinem Namen.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Das ist das Grundprinzip der JavaScript-Konsole: Du kannst ein
+  einzeiliges Programm eintippen und der Browser fährt es für Dich
+  ab und sagt Dir was das Ergebnis war. Wenn Du etwas schreibst,
+  das nicht als gültiges Programm durchgeht, sagt er Dir was
+  schiefgelaufen ist.</p>
+
+<p>Das erste Programm (<code>1 + 1</code>) wird Dir nicht sehr fremd
+  erscheinen. Es ist als eine Reihe von Anweisungen an den
+  Computer zu lesen: <em>nimm die Zahl eins, dann nimm nochmal die eins,
+  und addiere die beiden zusammen</em>. In JavaScript-Programmen
+  kann man nicht direkt auf so abstrakte Konzepte wie "eins und eins
+  addieren" Bezug nehmen, sondern man instruiert den Computer
+  der Reihe nach, sozusagen zu Fuß.</p>
+
+<p>Das zweite Programm (<code>alert(…)</code>) ist ein Funktionsaufruf.
+  Funktionen sind Operationen, die ausgeführt werden können.
+  Die Funktion, die unter dem Namen <code>alert</code> verfügbar ist,
+  ist eine Operation, die ein kleines Dialog-Fenster auf dem Bildschirm
+  anzeigt. Mit Hilfe der Klammern sagt man der Funktion, dass sie ausgeführt
+  werden soll. Alles was zwischen den Klammern steht, sind zusätzliche
+  Informationen, die man der Funktion mitgeben möchte. Im Beispiel haben
+  wir der <code>alert</code>-Funktion gesagt, welchen Text sie anzeigen
+  soll.</p>
+
+
+<h2 class=step>Ausdrücke verstehen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen, was das Grundelement ist, aus dem Programme bestehen.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Kombiniere die beiden Programme aus dem vorigen Schritt: <code>alert(1 + 1)</code>.</p>
+
+<p>Gib <code>1 + 1 * 10</code> in die Konsole ein und dann <code>(1 + 1) * 10</code>.
+Sieh Dir die unterschiedlichen Ergebnisse an.</p>
+
+<p>Schreibe <code>"hey" + "ho"</code>.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Die Art Programme, die wir bisher geschrieben haben, nennt man
+  <em>Ausdrücke</em> (englisch: <em>Expressions</em>).
+  Ausdrücke sind wie Legosteine: Du kannst mehrere
+  davon nehmen und daraus größere, interessantere Ausdrücke bauen.
+  Zum Beispiel: <code>alert(1 + 1)</code> kombiniert den Aufruf von
+  <code>alert</code> mit dem Berechnen von <code>1 + 1</code>, und tut
+  genau was man erwarten würde: Es zeigt die Zahl zwei in einem
+  Dialog-Fenster.</p>
+
+<p>Wenn man so etwas wie <code>+</code> und <code>*</code>
+  (<em>Operatoren</em>) zum Kombinieren von Ausdrücken verwendet,
+  ist die Bedeutung manchmal nicht ganz offensichtlich. Der
+  <code>*</code>-Operator, den man fürs Multiplizieren verwendet,
+  wird vor dem <code>+</code>-Operator ausgewertet. Um explizit
+  anzugeben wie Ausdrücke untereinander zusammengehören, verwendet
+  man Klammern.</p>
+
+<p>Jeder Ausdruck hat einen <em>Wert</em>. Die einfachsten Ausdrücke
+  sind Zahlen (<code>1</code>) und Strings (<code>"hey"</code>), auch
+  Zeichenketten genannt. Sie stehen unmittelbar für einen Wert:
+  Strings repräsentieren Text und Zahlen repräsentieren Zahlenwerte.
+  Damit hätten wir schon mal zwei verschiedene <em>Typen</em> von
+  Werten. Später werden wir noch mehr Typen kennenlernen.</p>
+
+<p>Wenn <code>+</code> auf Zahlenwerte angewendet wird, bedeutet
+  es Addition. Wenn es auf Strings angewendet wird, klebt es deren
+  Textinhalt aneinander und produziert damit einen neuen String.</p>
+
+
+<h2 class=step>Variablen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Verstehen wie man Werte speichert und sie beim Namen nennt.
+  Verstehen was Anweisungen sind.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Gib die folgenden Zeilen in die Konsole ein:</p>
+
+<pre>var meinwert = 32 * 32;
+alert(meinwert);
+meinwert = 10;
+alert(meinwert);</pre>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Das obige Programm führt zwei neue Konzepte ein: Semikolons und
+  die Verwendung von <code>var</code>.</p>
+
+<p>Das erste Konzept ist einfach zu erklären. Ein Programm ist eine
+  Reihe von <em>Anweisungen</em> (englisch: <em>Statements</em>).
+  Packt man ein Semikolon hinter einen Ausdruck, hat man eine Anweisung.
+  Es gibt auch andere Arten von Anweisungen. Die Anweisungen in einem
+  Programm werden, wie man erwarten würde, von oben nach unten
+  ausgeführt.</p>
+
+<p>Eine spezielle Form einer Anweisung ist die Deklaration einer
+  Variablen. Sie führt einen Namen ein und assoziiert diesen mit
+  einem Wert. Danach kann dieser Name (in unserem Fall
+  <code>meinwert</code>) als Ausdruck verwendet werden, der
+  für den aktuellen Wert der Variablen mit diesem Namen steht.</p>
+
+<p>Während ein Programm ausgeführt wird, muss der Wert einer
+  Variablen nicht immer gleich bleiben. Man kann zu jeder Zeit den
+  Operator <code>=</code> verwenden um einen neuen Wert zuzuweisen,
+  wie in Zeile drei im Beispiel.</p>
+
+
+<h2 class=step>Eine Webseite</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Sehen wie JavaScript-Programme sich im Kontext von Webseiten
+  verhalten.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne die <a href="sandbox/#basic.html" target="_blank">Sandkasten</a>-Seite.</p>
+
+<p>Du wirst im unteren Teil den Quelltext einer sehr einfachen
+  HTML-Seite sehen, und darüber die Seite selbst. Lies den Quelltext.</p>
+
+<p>Probiere etwas zu verändern und den 'Render'-Button (über dem
+  Quelltext) zu klicken. Öffne in dem neuen Tab auch die
+  JavaScript-Konsole.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Die Sandkasten-Seite (die selbst eine in JavaScript geschriebene
+  Webseite ist) ermöglicht es uns, Webseiten zu schreiben und
+  auszuprobieren.</p>
+
+<p>JavaScript-Code kann in HTML-Dokumente mit dem
+  <code>&lt;script></code>-Tag eingebunden werden. Im Beispiel ist
+  ein winziges Programm eingebunden, das eine Variable mit dem Namen
+  <code>myMessage</em> definiert und auf ihr die Funktion
+  <code>console.log</code> ausführt.</p>
+
+<p>Beim direkten Eingeben von Ausdrücken in die Konsole wird das
+  Ergebnis immer automatisch angezeigt. Für Programme, die Teil einer
+  Webseite sind, ist das nicht so. Wenn Du etwas in der Konsole
+  angezeigt haben möchtest, musst Du die Funktion
+  <code>console.log</code> verwenden.</p>
+
+<p>Wenn Du das Innenleben einer Seite anschauen möchtest, die im
+  Sandkasten angezeigt wird, ist ein zusätzlicher Schritt nötig.
+  Wenn Du die Konsole in diesem Tab öffnest und <code>myMessage</code>
+  eintippst, wird es die Variable nicht finden. Der Grund ist, dass
+  die Konsole mit der Sandkasten-Seite selbst verbunden ist—nicht
+  mit der Seite, die darin angezeigt wird. Am unteren Ende der Konsole
+  gibt es eine Schaltfäche auf der <code>&lt;top frame></code> steht.
+  Klicke sie an und wähle die andere Option aus, um die Konsole mit der
+  Seite zu verbinden, die wir geschrieben haben.</p>
+
+<p>Der Button auf der Beispielseite ist über sein
+  <code>onclick</code>-Attribut mit einem Stück JavaScript-Code
+  verknüpft. Attribute sind Paare der Form <code>name="wert"</code>,
+  die in HTML-Tags definiert werden.
+  Weil der Button und die Variable <code>myMessage</code> auf
+  derselben Seite leben, ist es für das <code>onclick</code>-Programm
+  (<code>alert(myMessage);</code>) möglich, sich auf diese Variable
+  zu beziehen.
+  Die Variable <code>meinwert</code>, die wir vorher (im diesem Tab
+  hier) definiert haben, ist im neuen Tab <em>nicht</em> verfügbar.
+  Jede Seite ist eine eigene kleine Welt, mit seinen eigenen
+  Variablen.</p>
+
+<h2>Und jetzt</h2>
+
+<p>Wir sind kurz davor alles viel interaktiver werden zu lassen.</p>
+
+<p><a href="page2_de.html">→ Weiter geht's mit der nächsten Seite</a>.</p>
