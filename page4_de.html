@@ -1,0 +1,125 @@
+<!doctype html>
+
+<head>
+  <title>Kursmaterial — Seite 4</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Kursmaterial: Seite, Ein Spiel</h1>
+
+<p>Als wir über das Material für diesen Kurs sprachen, meinte jemand, dass es 
+eine gute Einführung in die Programmierung wäre, ein Spiel zu entwickeln. Zu
+meiner Überraschung wurde dann aber auch gesagt, dass es vielleicht keine so
+interessante Sachen wäre.</p>
+
+<p>Ich habe lange darüber nachgedacht, aber diese Aussage irritiert mich
+immer noch.</p>
+
+<p>Wenn du die Vorstellung nachvollziehen kannst, dass es langweilig sein könnte,
+ein Spiel zu programmieren, muss ich mich entschuldigen. Auf dieser Seite werden
+wir an einem Spiel arbeiten.</p>
+
+
+<h2 class=step>Schau es dir an!</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Aufhören zu glauben, dass es irgendwie schwierig sein könnte, ein
+interaktives Spiel zu programmieren.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne <a href="sandbox/index.html#invaders.js" target=_blank>das Spiel</a>.</p>
+
+<p>Spiel das Spiel. Denk dir <em>„Ja, das wäre beeindruckend, wenn es 1970
+wäre“.</em></p>
+
+<p>Lies den Code und die Kommentare.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Mit einigen sehr einfachen Berechnungen kannst du ein interaktives Spiel
+schreiben, oder auch andere spannende Dinge machen wie z.B. Simulationen von
+physikalischem Verhalten. Ziemlich cool, oder?</p>
+
+
+<h2 class=step>Erweitere es</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Um das Invaders-Programm besser zu verstehen, versuchen wir es jetzt zu
+verändern und einige Funktionen hinzuzufügen.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Setze alle der folgenden Anpassungen um und teste (in kleinen Schritten), ob
+alles noch wie erwartet funktioniert.</p>
+
+<p>Du kannst die Seite jederzeit neu laden (Strg-R / Cmd-R), um zur
+ursprünglichen Version des Programms zurückzukehren. Um die letzten paar
+Änderungen zu widerrufen, kannst du auch die Tastenkombination Ctrl-Z / Cmd-Z
+(undo) im Text-Editor benutzen. Wenn du einen Stand deines Programms hast,
+zu dem du später vielleicht zurückkehren möchtest, kannst du den „Save“-Button
+oben auf der Seite benutzen, um zu speichern. Mit dem „Load“-Button kannst du
+die Version dann wiederherstellen (Achtung, damit überschreibst du dann das
+aktuelle Programm).</p>
+
+<p>Wenn du nicht weiterkommst, grübel nicht zu lange. Du kannst die Coaches
+jederzeit und immer wieder fragen und dir helfen lassen.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Wenn du eigene Ideen für Verbesserungen des Spiel hast oder, für die
+abenteuerlustigen unter euch, für ein ganz eigenes Spiel, immer drauf los!
+Das Folgende sind nur Vorschläge.</p>
+
+<p><strong>a)</strong> Also, das Spiel ist wirklich simpel. Wie bei jedem
+ernstzunehmenden Spiel-Automaten wird die Schwierigkeit mit der Zeit immer
+größer. Füge einen „Level“-Zähler hinzu, der in der <code>frame</code>-Funktion
+gesetzt wird und der die Wahrscheinlichkeit erhöht, dass ein Invader in einem
+bestimmten Spielzug erscheint. Zeige das aktuelle Level irgendwo auf dem
+Bildschirm an, indem du die <code>text</code>-Funktion benutzt.</p>
+
+<p><strong>b)</strong> Eine weitere tolle Funktion wäre es, verschiedene Arten
+von Invaders zu haben. Ändere die <code>newInvader</code>-Funktion so, dass
+sie einem neu erzeugten Invader eine Eigenschaft <code>type</code> gibt, die
+zufällig gesetzt wird, z.B. so:</p>
+
+<pre>function newInvader() {
+  var type = "normal";
+  if (Math.random() < 0.4)
+    type = "super";
+  else if (Math.random() < 0.2)
+    type = "superduper";
+  ....
+}</pre>
+
+<p>Als nächstes ändere die Funktion <code>drawInvader</code> so, dass sie
+verschiedene Typen bzw. Arten auch unterschiedlich darstellt (z.B. indem sie
+einfach eine andere Farbe bekommen) und verändere <code>processBullets</code>
+so, dass nicht-normale Invaders mit einer bestimmten Wahrscheinlichkeit
+(wieder mit <code>Math.random</code>) einen Treffer einer Kugel überleben.</p>
+
+<p><strong>c)</strong> Abschließend noch eine etwas größere Herausforderung:
+Du könntest die Invaders horizontal vor- und zurückbewegen während sie
+herabsinken.</p>
+
+<p>Der schwierige Teil hier ist zu entscheiden, in welche Richtung die Invaders
+bewegt werden sollen. Wenn sie sich synchron im Zickzack bewegen sollen, wie im
+echten Space Invaders-Spiel, musst du für alle Invaders die gleiche Richtung
+angeben. Dafür könntest du eine Zähler-Variable benutzen, die bei jedem Zug
+erhöht wird. Sobald eine bestimmte Anzahl an Zügen erreicht ist (auch in
+einer Variable gespeichert), muss dann die Richtung geändert werden, wobei
+auch die Zähler-Variable auf Null zurückgesetzt wird und dann nach weiteren X
+Zügen die Richtung wieder geändert wird.</p>
+
+
+<h2>Das ist alles für heute</h2>
+
+<p>Wir hoffen, du hast den Tag genossen.</p>
+
+<p>Falls du ganz schnell durch das Material durchgekommen bist und jetzt noch
+Zeit hast, denk dir doch selber noch weitere Aufgaben aus oder schau, ob
+du anderen Teilnehmern helfen kannst.</p>
