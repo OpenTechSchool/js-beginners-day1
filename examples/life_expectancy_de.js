@@ -16,7 +16,7 @@ function drawing() {
   color("green");
   showCountry(countryData[81]); // India
   color("blue");
-  showCountry(countryData[150]); // Russia
+  showCountry(countryData[150]); // Russian Federation
 }
 
 // Folgende Funktionen stehen zur Verfügung:
@@ -37,7 +37,7 @@ function drawing() {
 //                  „Kontrollpunkt“ zur Definition der Rundung dient
 //
 // Alle Koordinaten (Punkte) werden so interpretiert, dass 0,0 
-// im Zentrum des Bildschirms liegt. x ist die horizontale Axe, y die vertikale.
+// im Zentrum des Bildschirms liegt. x ist die horizontale Achse, y die vertikale.
 // Positive x-Werte bewegen sich nach links, positive y-Werte bewegen sich nach
 // oben.
 // Folgende Operationen können dieses Koordinatensystem verändern:
