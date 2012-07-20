@@ -95,10 +95,10 @@ function removeDeadObjects(array) {
 
 // Process a single step of the game (done twenty times per second).
 function frame() {
-  // There is a 3% chance per turn, as long as the game is not over,
+  // There is a 5% chance per turn, as long as the game is not over,
   // that a new invader is added.
   // The ! operator means 'not', the && operator means 'and'.
-  // So this says 'if not gameOver and Math.random() is less than 0.03'
+  // So this says 'if not gameOver and Math.random() is less than 0.05'
   if (!gameOver && Math.random() < 0.05)
     newInvader();
 
