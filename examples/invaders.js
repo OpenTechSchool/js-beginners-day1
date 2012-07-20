@@ -7,7 +7,7 @@
 // The width and height of the game area
 var width = 600, height = 300;
 // An array containing the currently attacking invaders
-var invaders = []
+var invaders = [];
 // Array containing bullets that are currently flying
 var bullets = [];
 // Set to true when an invader reaches the bottom of the screen
