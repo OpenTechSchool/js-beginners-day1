@@ -47,7 +47,7 @@ cyan, purple, white</em>, each smaller than the last.</p>
 }</pre>
 
 <p>That is not wrong, but it is not right either. It repeats itself a
-lot. Here is <a href="sandbox/#rainbow.js">a better version</a>:</p>
+lot. Here is <a href="sandbox/#rainbow.js" target=_blank>a better version</a>:</p>
 
 <pre>function rainbow(x, y) {
   var colors = ["red", "orange", "yellow", "green", "cyan", "purple", "white"];
@@ -66,8 +66,9 @@ and <strong>]</strong>) is called an array. An array is a value that
 holds other values—in this case, it holds seven strings that name
 colors.</p>
 
-<p>The values in an array are ordered, and each element has a
-position. Array positions start at zero, so in the above
+<p>The values in an array are called its <em>elements</em>. The elements
+in an array are ordered, which means that each element has a position
+within the array. Array positions start at zero, so in the above
 example, <code>"red"</code> has position zero,
 and <code>"white"</code> (the seventh element) has position 6. The
 notation <code>colors[1]</code> is used to access the values in an
@@ -126,18 +127,18 @@ see that they make up a single loop.</p>
 <p>Give the object another property with <code>myObject.color =
 "purple"</code>. Then evaluate <code>myObject.color</code>.</p>
 
-<p>Change the score property by doing <code>myObject.score =
-105</code>. Evaluate <code>myObject.score</code> again to convince
-yourself that it worked.</p>
+<p>Change the <code>score</code> property by doing 
+<code>myObject.score = 105</code>. Evaluate <code>myObject.score</code>
+again to convince yourself that it worked.</p>
 
 <h3 class=ex>Explanation</h3>
 
 <p>Objects are also collections of values. But they require every
 value to have a name. Arrays are useful when collecting any number of
-values in a homogenous group, whereas objects are more when each value
-has a specific, distinct role. I.e. a big bag of potatoes is an array,
-but the parts that make up a car (engine, wheels, each with their own
-role) form an object.</p>
+values in a homogenous group, whereas objects are more appropriate
+when each value has a specific, distinct role. I.e. a big bag of
+potatoes is an array, but the parts that make up a car (engine, wheels,
+each with their own role) form an object.</p>
 
 <p>The <code>{property1: value1, property2: value2}</code> syntax is
 used to create a new object. There are two ways to access the
@@ -168,7 +169,7 @@ for a chess game board. There are multiple good solutions.</p>
 <p>In our new playground environment, we have a new variable
 available, <code>countryData</code>. This contains an array of objects
 with information (population, life expectancy) about almost all
-countries on earth..</p>
+countries on earth.</p>
 
 <p>Each object (representing a country), has a <code>name</code>
 property containing a string, and <code>population</code>
@@ -196,7 +197,7 @@ function drawing() {
   color("green");
   showCountry(countryData[81]); // India
   color("blue");
-  showCountry(countryData[150]); // Russia
+  showCountry(countryData[150]); // Russian Federation
 }</pre>
 
 <p>You can see it in action <a href="sandbox/#life_expectancy.js"
@@ -274,7 +275,7 @@ the <code>visualizeHistory</code> function on that array.</p>
 
 <p>To build up an array, follow this pattern:</p>
 
-<pre>var newArray = []; # empty
+<pre>var newArray = []; // empty
 for (var i = 0; i < 10; i = i + 1) {
   newArray.push(i);
 }</pre>
@@ -287,7 +288,7 @@ array.</p>
 of the maximum world population in the whole dataset (either
 using <code>if</code> with the <code>></code> operator, or
 the <code>Math.max</code> function, which can be given two arguments
-and will returns the greatest of the two).</p>
+and returns the greatest of the two).</p>
 
 <h3 class=ex>Explanation</h3>
 

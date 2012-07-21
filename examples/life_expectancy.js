@@ -16,7 +16,7 @@ function drawing() {
   color("green");
   showCountry(countryData[81]); // India
   color("blue");
-  showCountry(countryData[150]); // Russia
+  showCountry(countryData[150]); // Russian Federation
 }
 
 // The following functions are available:

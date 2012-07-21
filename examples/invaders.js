@@ -7,7 +7,7 @@
 // The width and height of the game area
 var width = 600, height = 300;
 // An array containing the currently attacking invaders
-var invaders = []
+var invaders = [];
 // Array containing bullets that are currently flying
 var bullets = [];
 // Set to true when an invader reaches the bottom of the screen
@@ -95,10 +95,10 @@ function removeDeadObjects(array) {
 
 // Process a single step of the game (done twenty times per second).
 function frame() {
-  // There is a 3% chance per turn, as long as the game is not over,
+  // There is a 5% chance per turn, as long as the game is not over,
   // that a new invader is added.
   // The ! operator means 'not', the && operator means 'and'.
-  // So this says 'if not gameOver and Math.random() is less than 0.03'
+  // So this says 'if not gameOver and Math.random() is less than 0.05'
   if (!gameOver && Math.random() < 0.05)
     newInvader();
 

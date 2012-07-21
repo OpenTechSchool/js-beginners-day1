@@ -1,0 +1,362 @@
+
+<!doctype html>
+
+<head>
+  <title>Curriculum — Seite 3</title>
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Averia+Serif+Libre:300,400">
+  <link rel=stylesheet href=style.css>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+
+<h1>Curriculum: Seite 3, Daten</h1>
+
+<p>In der Welt des Computers gibt es nur Daten. Was nicht Daten ist,
+ist nicht. Programme sind Daten. Programmen erschaffen neue Daten. Es
+ist ein eigenartiger, auf Silikon basierender Kreislauf des Lebens.</p>
+
+
+<h2 class=step>Datenstrukturen</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Lerne mehrere Werte in einer Datenstruktur zu gruppieren und diese
+Gruppierung zu verwenden.</p>
+
+<p>Aufgabe: Zeichne einen Regenbogen indem du sieben konzentrische
+Kreise mit den Farben <em>red, orange, yellow, green,
+cyan, purple, white</em> zeichnest, wobei jeder Kreis kleiner als der
+zuvor ist.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Das ist der naive Ansatz:</p>
+
+<pre>function rainbow(x, y) {
+  color("red");
+  circle(x, y, 150);
+  color("orange");
+  circle(x, y, 145);
+  color("yellow");
+  circle(x, y, 140);
+  color("green");
+  circle(x, y, 135);
+  color("cyan");
+  circle(x, y, 130);
+  color("purple");
+  circle(x, y, 125);
+  color("white");
+  circle(x, y, 120);
+}</pre>
+
+<p>Das ist nicht falsch, aber es ist einfach nicht richtig. Es ist
+voller Wiederholungen. Hier ist <a href="sandbox/#rainbow.js" target=_blank>eine
+bessere Variante</a>:</p>
+
+<pre>function rainbow(x, y) {
+  var colors = ["red", "orange", "yellow", "green", "cyan", "purple", "white"];
+  var count = 0;
+  while (count < colors.length) {
+    color(colors[count]);
+    circle(x, y, 150 - 5 * count);
+    count = count + 1;
+  }
+}</pre>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Das Ding mit den eckigen Klammern (<strong>[</strong>
+und <strong>]</strong>) wird ein <em>Array</em> genannt. Ein Array ist ein
+Wert der andere Werte enthält - in diesem Fall enthält er sieben Strings
+die Farben benennen.</p>
+
+<p>Die Werte in einem Array werden seine <em>Elemente</em> genannt. Die
+Elemente in einem Array sind geordnet, was bedeutet, dass jedes Element
+eine Position innerhalb des Arrays hat. Die Positionen in einem Array
+werden ab Null gezählt, so dass im Beispiel oben <code>"red"</code> die
+Position 0 hat, und <code>"white"</code> (das siebte Element) die
+Position 6. Die Schreibweise <code>colors[1]</code> wird benutzt um auf
+die Elemente in einem Array zuzugreifen — in diesem Fall wäre es
+<code>"orange"</code>.</p>
+
+<p>Eine weitere neue Schreibweise ist der Punkt in
+<code>colors.length</code>, auch wenn wir den bei
+<code>Math.random</code> schon gesehen haben.
+Er wird verwendet um auf andere Arten von Werten zuzugreifen, die
+<em>Eigenschaften</em> (<em>properties</em>) genannt werden. Bei
+<code>Math.random</code> wird es nur zur Gruppierung verwendet:
+Eine ganze Sammlung von mathematischen Funktionen sind als Eigenschaften
+von <code>Math</code> verfügbar (zum Beispiel <code>Math.round</code>
+zum Runden von Zahlen). Aber im Fall von <code>colors.length</code>
+wird auf eine Eigenschaft zugegriffen, die in direkter Verbindung zum
+Array <code>colors</code> steht: die Gesamtzahl der Elemente im Array
+(sieben).</p>
+
+<p>Die <code>while</code>-Schleife läuft eines nach dem anderen über die
+Elemente des Arrays und verwendet dabei die Variable <code>count</code>
+um ihre Position zu speichern. Bei jedem Schritt werden die Elemente
+benutzt um die aktuelle Farbe zu setzen und anschließend wird ein Kreis
+der passenden Größe gezeichnet.</p>
+
+<p>Weil diese Art von Schleife (Variable erzeugen, in der
+<code>while</code>-Bedingung prüfen, und aktualisieren) sehr häufig
+vorkommt, gibt es eine kompaktere Schreibweise dafür. Dieses Programm
+ist äquivalent zu dem vorherigen:</p>
+
+<pre>function rainbow(x, y) {
+  var colors = ["red", "orange", "yellow", "green", "cyan", "purple", "white"];
+  for (var count = 0; count < colors.length; count = count + 1) {
+    color(colors[count]);
+    circle(x, y, 150 - 5 * count);
+  }
+}</pre>
+
+<p>In einer <code>for</code>-Schleife werden das Initialisieren der
+Variablen der Schleife, das Prüfen der Bedingung, und das Aktualisieren
+der Werte zusammen gruppiert, damit einfacher gesehen werden kann, dass
+sie gemeinsam die Schleife ausmachen.</p>
+
+
+<h2 class=step>Benannte Eigenschaften</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Lerne Objekte zu erzeugen und auf ihre Eigenschaften zuzugreifen.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Öffne die Konsole wieder, falls du sie geschlossen hast.</p>
+
+<p>Erzeuge eine Variable indem du folgendes in die Konsole eingibst:
+<code>var myObject = {name: "Larry", score: 100};</code></p>
+
+<p>Führe <code>myObject.name</code> und <code>myObject.score</code> aus.</p>
+
+<p>Führe zudem <code>myObject["name"]</code> und <code>myObject["sco" +
+  "re"]</code> aus.</p>
+
+<p>Gib dem Objekt mit <code>myObject.color =
+"purple"</code> eine Eigenschaft hinzu. Dann führe
+<code>myObject.color</code> aus.</p>
+
+<p>Verändere die <code>score</code>-Eigenschaft mit
+<code>myObject.score = 105</code>. Führe dann wieder <code>myObject.score</code>
+aus um sicher zu gehen, ob es geklappt hat.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Objekte sind ebenfalls Gruppierungen von Werten. Sie verlangen aber,
+dass jeder Wert einen Namen hat. Arrays sind nützlich um irgendeine
+Menge von Werten in einer homogenen Gruppe zu sammeln. Objekte dagegen
+sind besser geeignet wenn jeder Wert eine klar bestimmte Rolle in der
+Gruppierung spielt. Zum Beispiel ist eine Tüte Chips ein Array, aber die
+Teile eines Autos (Motor, Räder, etc.) bilden ein Objekt.</p>
+
+<p>Die Schreibweise <code>{property1: value1, property2: value2}</code>
+wird verwendet um ein Objekt zu erzeugen. Es gibt zwei Arten um auf die
+Eigenschaften eines Objektes zuzugreifen. Die Art mit Punkt,
+<code>object.property</code>, wird verwendet, wenn der Name der
+Eigenschaft schon beim Schreiben des Programms bekannt ist.
+Die Art mit Klammern, <code>object["property"]</code>, lässt zu, dass
+der Name der Eigenschaft als beliebiger Ausdruck angegeben wird und ist
+daher nützlich, wenn der Name erst noch erstellt werden muss.</p>
+
+<p>Zusammen bieten Objekte und Arrays die Möglichkeit, eine große
+Bandbreite an Informationen darzustellen. Ein Beispiel: Eine Liste von
+Spielern in einem Spiel würde üblicherweise ein Array von Objekten sein,
+worin jedes Objekt einen Spieler repräsentiert. Falls eine Liste von
+Ergebnissen mit einzelnen Spielern verbunden wird, wäre diese wiederum
+ein Array in jedem der Spieler-Objekte. So kann man beliebig fortfahren.
+</p>
+
+<p><strong>Übung:</strong> Überlege dir eine JavaScript-Repräsentierung
+eines Schachbretts. Es gibt mehrere gute Lösungen.</p>
+
+
+<h2 class=step>Wir haben Daten</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Mache eine einfache Visualisierung eines Datensatzes</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>In unserer Spielumgebung haben wir eine neue Variable zur Verfügung,
+<code>countryData</code>. Sie enthält ein Array von Objekten mit
+Informationen (Bevölkerung, Lebenserwartung) über die meisten Länder der
+Erde.</p>
+
+<p>Jedes Objekt stellt ein Land dar und enthält eine
+<code>name</code>-Eigenschaft mit einem String, sowie
+<code>population</code>- und
+<code>life_expectancy</code>-Eigenschaften die Arrays mit Zahlen
+enthalten. Diese Zahlen geben die Werte der entsprechenden Statisiken
+(Bevölkerungszahl und Lebenserwartung in Jahren) für die Jahre 1960 bis
+2011 an.</p>
+
+<p>Dieses Programm wählt ein paar Länder aus und stellt den Trend ihrer
+jeweiligen Lebenserwartung für den verfügbaren Zeitraum als
+Punktdiagramm dar.</p>
+
+<pre>var width = 600, height = 300;
+
+function showCountry(country) {
+  var step = width / country.life_expectancy.length;
+  for (var pos = 0; pos < country.life_expectancy.length; pos = pos + 1) {
+    var le = country.life_expectancy[pos];
+    circle(step * pos, le * height / 100, 2);
+  }
+}
+
+function drawing() {
+  moveTo(-width / 2, -height / 2);
+  color("red");
+  showCountry(countryData[66]); // Germany
+  color("green");
+  showCountry(countryData[81]); // India
+  color("blue");
+  showCountry(countryData[150]); // Russian Federation
+}</pre>
+
+<p>Du kannst es <a href="sandbox/#life_expectancy_de.js"
+target=_blank>hier</a> in Aktion sehen.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Um die Zeichnung mit ein wenig Disziplin zu erstellen, definiert das
+Programm zunächst die Breite und Höhe des Bereichs in den gezeichnet
+werden soll. 600 auf 300 Einheiten.</p>
+
+<p>Die Funktion <code>showCountry</code> nimmt ein Land-Objekt als
+Parameter und läuft in einer Schleife über alle Lebenserwartungs-Werte
+dieses Landes. Es berechnet den horizontalen Abstand den es zwischen
+Punkten lassen will und speichert ihn in der Variable <code>step</code>.
+Unter der Annahme, dass die Lebenserwartung stets zwischen 0 und 100 Jahren
+liegen wird, teilt es die Höhe des Zeichenbereichs durch 100 um die Zahl
+der Einheiten zu bestimmen, die ein Jahr Lebenserwartung darstellen.</p>
+
+<p>Die Funktion <code>drawing</code> bewegt zuerst das Koordinatensystem
+so, dass (0,0) die linke untere Ecke des Zeichenbereichs und damit des
+Graphen ist. Es ruft dann <code>showCountry</code> auf drei
+verschiedenen Ländern auf, wobei es jedem eine andere Farbe gibt.</p>
+
+<p><strong>Übung:</strong> Die Position eines Landes in der Sammlung
+kennen zu müssen um es anzeigen zu können ist irgendwie unpraktisch.
+Schreibe eine Funktion <code>findCountry</code> die einen String mit
+einem Ländernamen als Parameter nimmt und durch das Array <code>countryData</code>
+läuft, und das Objekt für das genannte Land zurück gibt.</p>
+
+<p>Um das tun zu können, musst du wissen, dass das Stichwort
+<code>return</code> benutzt werden kann, um eine Anweisung zu schreiben,
+die einen Wert an die Stelle im Code zurück gibt, die die Funktion
+aufgerufen hat. Zum Beispiel:</p>
+
+<pre>function timesThree(x) {
+  return x * 3;
+}
+console.log(timesThree(3)); // Logs 9</pre>
+
+<p><strong>Übung:</strong> Ein großes Problem mit unseren Graphen ist,
+dass man gar nicht erkennen kann, wofür die Punkte eigentlich stehen.
+Schreibe zusätzlichen Code der graue horizontale Linien zeichnet (mit
+der Funktion <code>line(x1, y1, x2, y2)</code>), so dass hinter dem
+Graph zu sehen ist, wo 10, 20, ..., usw. bis 100 Jahre Lebenserwartung
+liegen. Benutze die Variablen <code>width</code> und <code>height</code>
+um die Linien richtig zu platzieren.</p>
+
+<p>Wenn du magst, kannst du auch noch Beschriftungen mit der Funktion
+<code>text(x, y, string)</code> hinzufügen oder eine Skala für den
+Zeitraum zeichnen lassen.</p>
+
+<p><strong>Übrung:</strong> Passe die Funktion <code>showCountry</code>
+so an, dass sie eine durchgehene Linie statt einer Folge von Punkten
+zeichnet..</p>
+
+
+<h2 class=step>Daten transformieren</h2>
+
+<h3 class=goal>Ziel</h3>
+
+<p>Schreib auf eigene Faust ein Programm, dass einen Datensatz zusammen
+fasst.</p>
+
+<h3 class=inst>Anweisungen</h3>
+
+<p>Im <a href="sandbox/#transform.js" target=_blank>Programm für diesen
+  Schritt</a>, gibt es die Funktion <code>visualizeHistory</code>,
+die der Funktion <code>showCountry</code> die wir zuvor benutzt haben
+sehr ähnlich ist, die aber einen Graphen für beliebige Daten zeichnen
+kann. Sie nimmt als Parameter ein Array mit Zahlen und eine vertikale
+Einheit entgegen. Die vertikale Einheit gibt an, wieviel vertikalen Raum
+eine Einheit des Zahlen-Arrays einnimmt.</p>
+
+<p>Vervollständige die Funktion <code>showWorldPopulation</code>. Sie
+soll die Weltbevölkerung für jedes der Jahre im Datensatz berechnen,
+die Ergebnisse in ein Array speichern und damit die Funktion
+<code>visualizeHistory</code> aufrufen.</p>
+
+<p>Um ein Array aufzufüllen kannst du folgende Technik verwenden</p>
+
+<pre>var newArray = []; // empty
+for (var i = 0; i < 10; i = i + 1) {
+  newArray.push(i);
+}</pre>
+
+<p>Die Funktion <code>push</code> ist eine Eigenschaft
+(<em>Methode</em>) jedes Arrays und fügt dem Array einen Wert hinzu.</p>
+
+<p>Um die richtige vertikale Einheit für deinen Graph zu bestimmen,
+musst du die maximale Weltbevölkerung, der dein Programm begegnet,
+speichern. Das kanst du entweder mit <code>if</code> und dem
+<code>></code>-Operator tun, oder mit der Funktion
+<code>Math.max</code>, die zwei Zahlen als Parameter nimmt und die
+größere der beiden zurück gibt.</p>
+
+<h3 class=ex>Erklärung</h3>
+
+<p>Die Daten sind nicht im geeignetsten Format um die Bevölkerung pro
+Jahr zusammen zu zählen. Dafür hätten wir lieber die Möglichkeit, eine
+Sammlung aller Bevölkerungszahlen eines Jahres direkt zu erhalten.</p>
+
+<p>Trotzdem kommen wir an die Daten heran, indem wir eine Schleife in
+einer Schleife verwenden, wobei die äußere Schleife über die Jahre läuft
+(zum Beispiel mit <code>countryData[0].population.length</code> als
+Gesamtzahl des Zeitraums), und die innere Schleife über die Länder.
+So kann die Bevölkerungszahl für das aktuelle Jahr aus jedem Land
+geholt werden und zur Gesamtzahl für das Jahr addiert werden. Es ist
+wichtig, dass der Zähler für die Gesamtzahl eines Jahres am Beginn der
+äußeren Schleife zurück gesetzt wird.</p>
+
+<p>Probier es aus! Falls du nicht weiterkommst, stelle einen Coach auf
+die Probe.</p>
+
+<p>Einige andere Ideen um interessante Darstellungen aus diesen Daten zu
+erschaffen:</p>
+
+<ul>
+  <li>Jedes Land hat eine <code>region</code>-Eigenschaft. Das ist
+  eine dreistellige Abkürzung die die Welt in sieben Regionen aufteilt.
+  (Den vollen Namen kannst du mit der Funktion <code>regionName</code>
+  aus der Abkürzung erzeugen.) Versuch ein Diagramm zu zeichnen, dass
+  die Anteile der Weltbevölkerung zeigt, die in jeder dieser Regionen
+  leben, unterteilt nach Jahreszahlen. Zum Beispiel kannst du einen
+  vertikalen Stapel von farbigen Balken pro Jahr zeichnen.</li>
+  <li>Die Land-Objekte enthalten zudem eine
+  <code>fertility</code>-Eigenschaft die für jedes Jahr die
+  Fruchtbarkeitsrate angibt.
+  Zeichne eine zweidimensionale Darstellung für jedes Jahr, die die
+  Korrelation zwischen Lebenserwartung und Fruchtbarkeitsrate zeigt,
+  d.h. Lebenserwartung auf der x-Achse, Fruchtbarkeit auf der
+  y-Achse.</li>
+  <li>Animiere eine Visualisierung über die Jahre hinweg, zum Beispiel
+  die aus dem letzten Vorschlag. Benutze dazu den
+  <code>setTimeout</code>-Trick, der in
+  <a href="sandbox/#drawing_animate_de.js" target=_blank>diesem Beispiel
+    aus der letzten Seite</a> gezeigt wird. Schreite dazu jede
+  Zehntelsekunde zum nächsten Jahr fort und zeichne ein Bild für das
+  aktuelle Jahr. Mit einem Aufruf von <code>text</code> kannst du das
+  aktuelle Jahr auch noch dazu schreiben.</li>
+</ul>
+
+<h3>Und damit kommen wir zu</h3>
+
+<p><a href="page4_de.html">→ Vierte und letzte Seite für Samstag</a>.</p>

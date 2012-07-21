@@ -75,14 +75,14 @@ in a one-line program, and the browser will run it for you, and tell
 you what the result was. If you write something that is not a valid
 program, it will try to tell you what went wrong.</p>
 
-<p>The first program, <code>1 + 1</code>, won't look to foreign. You
+<p>The first program, <code>1 + 1</code>, won't look too foreign. You
 should read it as a series of commands to the computer: <em>give me
 the number one, now give me another one, now add them both
 together</em>. I.e. JavaScript programs do not refer to abstract
 concepts (addition of one and one), but to a series of very pedestrian
 steps that the computer is instructed to take.</p>
 
-<p>The second program (<code>alert</code>) is a function call.
+<p>The second program (<code>alert(…)</code>) is a function call.
 Functions are operations that can be invoked. The function available
 under the name <code>alert</code> is an operation for showing a little
 dialog window on the screen. The parentheses are the notation for
@@ -95,7 +95,7 @@ function which text to display.</p>
 
 <h3 class=goal>Goal</h3>
 
-<p>Understand the most basic element that programs are composed of.</p>
+<p>Understand the most basic elements that programs are composed of.</p>
 
 <h3 class=inst>Instructions</h3>
 
@@ -152,8 +152,8 @@ alert(myvalue);</pre>
 
 <h3 class=ex>Explanation</h3>
 
-<p>The above program introduces two new concepts: the semicolons, and
-the use of <code>var</code>.</p>
+<p>The above program introduces three new concepts: the semicolons,
+the use of <code>var</code>, and the <code>=</code> operator.</p>
 
 <p>The first is the easiest to explain. A program is a series
 of <em>statements</em>. An expression with a semicolon after it is a
@@ -165,7 +165,8 @@ introduces a name and associates a value with it. Afterwards, the name
 (<code>myvalue</code>, in this case) can be used as an expression that
 refers to the current value of the variable by that name.</p>
 
-<p>A variable's value is not constant over the execution of a program.
+<p>A variable's value is not constant over the execution of a program
+(in this JavaScript variables differ from mathematical variables).
 The <code>=</code> operator can be used at any time to give it a new
 value, as in the third line of the example.</p>
 
@@ -182,10 +183,11 @@ pages.</p>
 <p>Open the <a href="sandbox/#basic.html" target="_blank">example</a>
 page.</p>
 
-<p>You will see the source for a very simple HTML page. Read it.</p>
+<p>You will see the source for a very simple HTML page below, with the
+actual page shown above it. Read the source.</p>
 
-<p>Then click the 'Render' button in the top left corner. Open the
-JavaScript console in the new tab.</p>
+<p>Try changing something, and clicking the 'Render' button above the
+source code. Open the JavaScript console in the new tab.</p>
 
 <h3 class=ex>Explanation</h3>
 
