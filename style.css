@@ -1,5 +1,5 @@
 body {
-  padding: 0;
+  padding: 0 21px;
   margin: 0 auto;
   font: 16px/2 sans-serif;
   color: #333;
@@ -8,8 +8,6 @@ body {
 
 h1, h2, h3 {
   color: black;
-  margin-left:  -13px;
-  margin-right: -13px;
   padding-left:  13px;
   padding-right: 13px;
   border-bottom: 1px solid hsl(0,0%,88%);
@@ -41,6 +39,11 @@ h3.ex {
   border-bottom: none;
 }
 
+p {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+
 a {
   padding: 2px 5px;
   color: hsl(200,100%,34%);
@@ -65,12 +68,19 @@ div.box {
 }
 
 pre {
-  padding-left: 20px;
+  margin: 0 13px;
+  padding: 13px 21px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: black;
+  background: hsl(205,13%,98%);
+  border: 1px solid hsl(205,13%,93%);
+  border-radius: 3px;
 }
 
 code {
-  background-color: #EEE;
-  border: 1px solid #DDD;
+  background: hsl(205,13%,98%);
+  border: 1px solid hsl(205,13%,93%);
   padding: 0.2em;
   font-size: 0.8em;
   border-radius: 3px;
