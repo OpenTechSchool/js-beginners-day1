@@ -1,4 +1,3 @@
-
 <!doctype html>
 
 <head>
@@ -74,14 +73,14 @@ Elemente in einem Array sind geordnet, was bedeutet, dass jedes Element
 eine Position innerhalb des Arrays hat. Die Positionen in einem Array
 werden ab Null gezählt, so dass im Beispiel oben <code>"red"</code> die
 Position 0 hat, und <code>"white"</code> (das siebte Element) die
-Position 6. Die Schreibweise <code>colors[1]</code> wird benutzt um auf
+Position 6. Die Schreibweise <code>colors[1]</code> wird benutzt, um auf
 die Elemente in einem Array zuzugreifen — in diesem Fall wäre es
 <code>"orange"</code>.</p>
 
 <p>Eine weitere neue Schreibweise ist der Punkt in
 <code>colors.length</code>, auch wenn wir den bei
 <code>Math.random</code> schon gesehen haben.
-Er wird verwendet um auf andere Arten von Werten zuzugreifen, die
+Er wird verwendet, um auf andere Arten von Werten zuzugreifen, die
 <em>Eigenschaften</em> (<em>properties</em>) genannt werden. Bei
 <code>Math.random</code> wird es nur zur Gruppierung verwendet:
 Eine ganze Sammlung von mathematischen Funktionen sind als Eigenschaften
@@ -92,9 +91,9 @@ Array <code>colors</code> steht: die Gesamtzahl der Elemente im Array
 (sieben).</p>
 
 <p>Die <code>while</code>-Schleife läuft eines nach dem anderen über die
-Elemente des Arrays und verwendet dabei die Variable <code>count</code>
+Elemente des Arrays und verwendet dabei die Variable <code>count</code>,
 um ihre Position zu speichern. Bei jedem Schritt werden die Elemente
-benutzt um die aktuelle Farbe zu setzen und anschließend wird ein Kreis
+benutzt, um die aktuelle Farbe zu setzen und anschließend wird ein Kreis
 der passenden Größe gezeichnet.</p>
 
 <p>Weil diese Art von Schleife (Variable erzeugen, in der
@@ -140,19 +139,19 @@ sie gemeinsam die Schleife ausmachen.</p>
 
 <p>Verändere die <code>score</code>-Eigenschaft mit
 <code>myObject.score = 105</code>. Führe dann wieder <code>myObject.score</code>
-aus um sicher zu gehen, ob es geklappt hat.</p>
+aus, um sicher zu gehen, dass es geklappt hat.</p>
 
 <h3 class=ex>Erklärung</h3>
 
 <p>Objekte sind ebenfalls Gruppierungen von Werten. Sie verlangen aber,
-dass jeder Wert einen Namen hat. Arrays sind nützlich um irgendeine
+dass jeder Wert einen Namen hat. Arrays sind nützlich, um irgendeine
 Menge von Werten in einer homogenen Gruppe zu sammeln. Objekte dagegen
 sind besser geeignet wenn jeder Wert eine klar bestimmte Rolle in der
 Gruppierung spielt. Zum Beispiel ist eine Tüte Chips ein Array, aber die
 Teile eines Autos (Motor, Räder, etc.) bilden ein Objekt.</p>
 
 <p>Die Schreibweise <code>{property1: value1, property2: value2}</code>
-wird verwendet um ein Objekt zu erzeugen. Es gibt zwei Arten um auf die
+wird verwendet, um ein Objekt zu erzeugen. Es gibt zwei Arten um auf die
 Eigenschaften eines Objektes zuzugreifen. Die Art mit Punkt,
 <code>object.property</code>, wird verwendet, wenn der Name der
 Eigenschaft schon beim Schreiben des Programms bekannt ist.
@@ -231,7 +230,7 @@ Parameter und läuft in einer Schleife über alle Lebenserwartungs-Werte
 dieses Landes. Es berechnet den horizontalen Abstand den es zwischen
 Punkten lassen will und speichert ihn in der Variable <code>step</code>.
 Unter der Annahme, dass die Lebenserwartung stets zwischen 0 und 100 Jahren
-liegen wird, teilt es die Höhe des Zeichenbereichs durch 100 um die Zahl
+liegen wird, teilt es die Höhe des Zeichenbereichs durch 100, um die Zahl
 der Einheiten zu bestimmen, die ein Jahr Lebenserwartung darstellen.</p>
 
 <p>Die Funktion <code>drawing</code> bewegt zuerst das Koordinatensystem
@@ -240,10 +239,10 @@ Graphen ist. Es ruft dann <code>showCountry</code> auf drei
 verschiedenen Ländern auf, wobei es jedem eine andere Farbe gibt.</p>
 
 <p><strong>Übung:</strong> Die Position eines Landes in der Sammlung
-kennen zu müssen um es anzeigen zu können ist irgendwie unpraktisch.
-Schreibe eine Funktion <code>findCountry</code> die einen String mit
-einem Ländernamen als Parameter nimmt und durch das Array <code>countryData</code>
-läuft, und das Objekt für das genannte Land zurück gibt.</p>
+kennen zu müssen, um es anzeigen zu können, ist irgendwie unpraktisch.
+Schreibe eine Funktion <code>findCountry</code>, die einen String mit
+einem Ländernamen als Parameter nimmt, durch das Array <code>countryData</code>
+läuft und das Objekt für das genannte Land zurück gibt.</p>
 
 <p>Um das tun zu können, musst du wissen, dass das Stichwort
 <code>return</code> benutzt werden kann, um eine Anweisung zu schreiben,
@@ -258,9 +257,9 @@ console.log(timesThree(3)); // Logs 9</pre>
 <p><strong>Übung:</strong> Ein großes Problem mit unseren Graphen ist,
 dass man gar nicht erkennen kann, wofür die Punkte eigentlich stehen.
 Schreibe zusätzlichen Code der graue horizontale Linien zeichnet (mit
-der Funktion <code>line(x1, y1, x2, y2)</code>), so dass hinter dem
+der Funktion <code>line(x1, y1, x2, y2)</code>), sodass hinter dem
 Graph zu sehen ist, wo 10, 20, ..., usw. bis 100 Jahre Lebenserwartung
-liegen. Benutze die Variablen <code>width</code> und <code>height</code>
+liegen. Benutze die Variablen <code>width</code> und <code>height</code>,
 um die Linien richtig zu platzieren.</p>
 
 <p>Wenn du magst, kannst du auch noch Beschriftungen mit der Funktion
@@ -283,7 +282,7 @@ fasst.</p>
 
 <p>Im <a href="sandbox/#transform.js" target=_blank>Programm für diesen
   Schritt</a>, gibt es die Funktion <code>visualizeHistory</code>,
-die der Funktion <code>showCountry</code> die wir zuvor benutzt haben
+die der zuvor genutzten Funktion <code>showCountry</code>
 sehr ähnlich ist, die aber einen Graphen für beliebige Daten zeichnen
 kann. Sie nimmt als Parameter ein Array mit Zahlen und eine vertikale
 Einheit entgegen. Die vertikale Einheit gibt an, wieviel vertikalen Raum
@@ -306,14 +305,14 @@ for (var i = 0; i < 10; i = i + 1) {
 
 <p>Um die richtige vertikale Einheit für deinen Graph zu bestimmen,
 musst du die maximale Weltbevölkerung, der dein Programm begegnet,
-speichern. Das kanst du entweder mit <code>if</code> und dem
+speichern. Das kannst du entweder mit <code>if</code> und dem
 <code>></code>-Operator tun, oder mit der Funktion
 <code>Math.max</code>, die zwei Zahlen als Parameter nimmt und die
 größere der beiden zurück gibt.</p>
 
 <h3 class=ex>Erklärung</h3>
 
-<p>Die Daten sind nicht im geeignetsten Format um die Bevölkerung pro
+<p>Die Daten sind nicht im geeignetsten Format, um die Bevölkerung pro
 Jahr zusammen zu zählen. Dafür hätten wir lieber die Möglichkeit, eine
 Sammlung aller Bevölkerungszahlen eines Jahres direkt zu erhalten.</p>
 
@@ -329,7 +328,7 @@ wichtig, dass der Zähler für die Gesamtzahl eines Jahres am Beginn der
 <p>Probier es aus! Falls du nicht weiterkommst, stelle einen Coach auf
 die Probe.</p>
 
-<p>Einige andere Ideen um interessante Darstellungen aus diesen Daten zu
+<p>Einige andere Ideen, um interessante Darstellungen aus diesen Daten zu
 erschaffen:</p>
 
 <ul>
