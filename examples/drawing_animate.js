@@ -49,6 +49,8 @@ function drawing() {
 //    q x y cx cy - draw a curve to x,y, using cx,cy as
 //                  'control point' to determine the curvature
 //
+//  fill()                   - fill the current path with the current color
+//
 // Coordinates are interpreted as if 0,0 is the center of the
 // screen. x is the horizontal axis, and y the vertical.
 // Positive x goes to the left, positive y goes up.

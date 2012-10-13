@@ -109,3 +109,7 @@ function goBack() {
   _ctx.restore();
   --_pushDepth;
 }
+
+function fill(color) {
+  _ctx.fill();
+}
