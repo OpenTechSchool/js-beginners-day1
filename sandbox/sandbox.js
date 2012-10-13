@@ -139,6 +139,13 @@ function loadFile() {
 }
 
 window.addEventListener("hashchange", loadFile, false);
+window.addEventListener("keydown", function(event){
+  // ctrl and enter = render
+  if((event.ctrlKey || event.metaKey) && event.which === 13) {
+    event.preventDefault();
+    render();
+  }
+});
 
 function showError(msg) { alert(msg); }
 

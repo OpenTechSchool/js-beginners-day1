@@ -50,6 +50,13 @@
     iframe {
       border: none;
     }
+    .hint {
+      color: gray;
+      border-right: 1px solid #ccc;
+      padding-right: 10px;
+      margin-right: 5px;
+      box-shadow: 1px 0 white;
+    }
   </style>
 </head>
 
@@ -57,6 +64,7 @@
 <div id=editor>
   <div id=controls>
     <button onclick="render()">Render</button>
+    <span class=hint>or press cmd/ctrl + enter</span>
     <span id=docname></span>
   </div>
   <div id=save-load>
