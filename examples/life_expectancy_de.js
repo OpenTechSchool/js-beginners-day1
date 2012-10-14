@@ -35,6 +35,8 @@ function drawing() {
 //    c     - zeichnet eine Linie, die zurückführt zum Anfang des Pfads
 //    q x y cx cy - zeichnet eine Kurve zu x,y, wobei cx,cy als
 //                  „Kontrollpunkt“ zur Definition der Rundung dient
+// 
+//  fill()                   - fülle den Pfad mit der aktuellen Farbe
 //
 // Alle Koordinaten (Punkte) werden so interpretiert, dass 0,0 
 // im Zentrum des Bildschirms liegt. x ist die horizontale Achse, y die vertikale.
