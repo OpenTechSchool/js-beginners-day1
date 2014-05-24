@@ -33,7 +33,7 @@ function drawing() {
 //
 // Coordinates are interpreted as if 0,0 is the center of the
 // screen. x is the horizontal axis, and y the vertical.
-// Positive x goes to the left, positive y goes up.
+// Positive x goes to the right, positive y goes up.
 // These operations can transform the coordinate system:
 //
 //  moveTo(x, y)    - move the origin to x, y
