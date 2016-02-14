@@ -1,6 +1,3 @@
-js-beginners-day1
-=================
+**Legacy** curriculum for the first day of the OpenTechSchool workshop "JavaScript for absolute beginners".
 
-Curriculum for the first day of the OpenTechSchool workshop "JavaScript for absolute beginners".
-
-**Caution:** There's also a variant of this material here: https://github.com/OpenTechSchool/js-beginners-4h-workshop-1. This one is a bit shorter and easier and has been preferred in the last few workshop events.
+**Caution:** You should use https://github.com/OpenTechSchool/js-beginners-1 which is maintained and a bit shorter and easier.
